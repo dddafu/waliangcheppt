@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+<title>蛙靓车汽车城招商方案 · Magazine Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ============ 主题色:🌿 森林墨 Forest Ink ============
+       切换主题:从 references/themes.md 复制对应的 :root 块
+       整体替换这几行(--ink / --ink-rgb / --paper / --paper-rgb)
+       其他地方散落的 rgba() 都走 var(--ink-rgb) / var(--paper-rgb),无需逐处改 */
+    --ink:#1a2e1f;
+    --ink-rgb:26,46,31;
+    --paper:#f5f1e8;
+    --paper-rgb:245,241,232;
+    --paper-tint:#ece7da;
+    --ink-tint:#253d2c;
+
+    /* ============ 字体(跨主题固定) ============ */
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --serif-en:"Playfair Display","Source Serif 4",Georgia,serif;
+    --serif-body-en:"Source Serif 4",Georgia,serif;
+    --serif-zh:"Noto Serif SC",source-han-serif-sc,serif;
+    --sans-zh:"Noto Sans SC",source-han-sans-sc,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;overflow:hidden;background:var(--ink);color:var(--paper);font-family:var(--sans-zh);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .35s ease}
+  body.light-bg{background:var(--paper)}
+
+  /* ============ 固定 16:9 舞台 + 横向翻页 ============ */
+  /* 所有页面按 1920x1080 设计，浏览器以 cover 模式铺满窗口，不在手机上重新排版。 */
+  .deck-viewport{position:fixed;inset:0;overflow:hidden;z-index:10}
+  .deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
+  #deck{position:absolute;left:0;top:0;width:23040px;height:1080px;display:flex;flex-wrap:nowrap;transition:transform .9s cubic-bezier(.77,0,.175,1);will-change:transform}
+  .slide{width:1920px;height:1080px;flex:0 0 1920px;position:relative;padding:64.8px 115.2px 108px 115.2px;display:flex;flex-direction:column;overflow:hidden}
+  .slide.light{color:var(--ink);background:var(--paper)}
+  .slide.dark{color:var(--paper);background:var(--ink)}
+  .slide.p7{padding-bottom:75.6px}
+
+  /* 默认页：遮罩较厚，保证文字可读 */
+  .slide::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;transition:background .7s ease}
+  .slide.light::before{background:rgba(var(--paper-rgb),.78);backdrop-filter:blur(3px)}
+  .slide.dark::before{background:rgba(var(--ink-rgb),.78);backdrop-filter:blur(3px)}
+  /* Hero 页：保持轻遮罩，让整页色块更干净 */
+  .slide.hero.light::before{background:rgba(var(--paper-rgb),.16);backdrop-filter:none}
+  .slide.hero.dark::before{background:rgba(var(--ink-rgb),.12);backdrop-filter:none}
+  /* Hero 页顶底微弱渐隐，保证 chrome/foot 区域可读 */
+  .slide.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+  .slide.hero.light::after{background:linear-gradient(180deg,rgba(var(--paper-rgb),.28) 0%,rgba(var(--paper-rgb),0) 14%,rgba(var(--paper-rgb),0) 86%,rgba(var(--paper-rgb),.28) 100%)}
+  .slide.hero.dark::after{background:linear-gradient(180deg,rgba(var(--ink-rgb),.32) 0%,rgba(var(--ink-rgb),0) 14%,rgba(var(--ink-rgb),0) 86%,rgba(var(--ink-rgb),.32) 100%)}
+
+  /* ============ Magazine chrome：顶部 meta + 底部 foot ============ */
+  .chrome{display:flex;justify-content:flex-end;align-items:flex-start;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.58;margin-top:12px}
+  .chrome > div:first-child{display:none}
+  .chrome .left,.chrome .right{display:flex;gap:2.4em;align-items:center}
+  .chrome .sep{width:40px;height:1px;background:currentColor;opacity:.4}
+  .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.48}
+  .foot .title{font-family:var(--serif-zh);font-weight:400;letter-spacing:.05em;text-transform:none;opacity:.68;font-size:11px}
+
+  body.auth-locked .deck-viewport,
+  body.auth-locked #nav,
+  body.auth-locked #hint,
+  body.auth-locked #rotate-hint{visibility:hidden;pointer-events:none}
+  #auth-gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;min-height:100svh;background:var(--ink);color:var(--paper);padding:8vw;overflow:hidden}
+  body:not(.auth-locked) #auth-gate{display:none}
+  .auth-card{width:min(520px,90vw);padding:46px 42px;border:1px solid rgba(var(--paper-rgb),.24);background:rgba(var(--paper-rgb),.055);box-shadow:0 28px 90px rgba(0,0,0,.28)}
+  .auth-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;opacity:.58}
+  .auth-title{font-family:var(--serif-zh);font-size:42px;line-height:1.18;font-weight:700;margin-top:18px}
+  .auth-copy{font-family:var(--sans-zh);font-size:15px;line-height:1.7;opacity:.72;margin-top:14px}
+  .auth-form{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:28px}
+  .auth-form input{min-width:0;height:48px;border:1px solid rgba(var(--paper-rgb),.28);background:rgba(0,0,0,.18);color:var(--paper);padding:0 14px;font-family:var(--sans-zh);font-size:16px;outline:none}
+  .auth-form input:focus{border-color:rgba(var(--paper-rgb),.68)}
+  .auth-form button{height:48px;border:1px solid rgba(var(--paper-rgb),.56);background:var(--paper);color:var(--ink);padding:0 22px;font-family:var(--sans-zh);font-weight:700;cursor:pointer}
+  .auth-error{min-height:20px;margin-top:10px;font-family:var(--sans-zh);font-size:13px;color:#f5c7b8;opacity:.9}
+  #welcome-gate{position:fixed;inset:0;z-index:9998;display:none;place-items:center;background:var(--ink);color:var(--paper);overflow:hidden}
+  body.auth-welcoming #welcome-gate{display:grid}
+  #welcome-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .welcome-word{position:relative;z-index:1;font-family:var(--serif-zh);font-size:min(13vw,118px);font-weight:700;letter-spacing:.08em;text-shadow:0 18px 60px rgba(0,0,0,.28);animation:welcomeIn 2.4s cubic-bezier(.2,.7,.2,1) both}
+  .welcome-word::after{content:"";display:block;width:140px;height:1px;margin:26px auto 0;background:rgba(var(--paper-rgb),.46)}
+  @keyframes welcomeIn{0%{opacity:0;transform:translateY(18px);filter:blur(10px)}32%{opacity:1;transform:translateY(0);filter:blur(0)}78%{opacity:1;transform:translateY(0);filter:blur(0)}100%{opacity:0;transform:translateY(-10px);filter:blur(8px)}}
+  .closing-gl{background:var(--ink)}
+  .closing-gl::before,.closing-gl::after{display:none}
+  .closing-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
+  .closing-gl>.chrome,.closing-gl>.frame,.closing-gl>.foot,.thanks-watch{position:relative;z-index:1}
+  .thanks-watch{position:absolute;right:290px;bottom:250px;font-family:var(--serif-zh);font-size:58px;font-weight:600;letter-spacing:.16em;color:var(--paper);opacity:.92;text-shadow:0 16px 52px rgba(0,0,0,.24)}
+  .thanks-watch::after{content:"";display:block;width:116px;height:1px;background:rgba(var(--paper-rgb),.42);margin-top:18px}
+
+  .tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;padding:6px 14px;border:1px solid currentColor;opacity:.85}
+  .rule{width:100%;height:1px;background:currentColor;opacity:.25;margin:32.4px 0}
+  .rule.v{width:1px;height:100%;margin:0}
+
+  /* ============ 字体规则 ============
+     · 衬线（Noto Serif SC / Playfair）：大标题、重点金句、数字
+     · 非衬线（Noto Sans SC）：正文描述、body、补充说明
+     · 等宽（IBM Plex Mono）：kicker、meta 小标签、foot 右侧
+  */
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;opacity:.6;margin-bottom:28.08px}
+  .display{font-family:var(--serif-en);font-weight:700;font-size:211.2px;line-height:.92;letter-spacing:-.025em}
+  .display-zh{font-family:var(--serif-zh);font-weight:700;font-size:149.76px;line-height:1.04;letter-spacing:-.005em}
+  .h1-zh{font-family:var(--serif-zh);font-weight:700;font-size:88.32px;line-height:1.12;letter-spacing:-.005em}
+  .h2-zh{font-family:var(--serif-zh);font-weight:600;font-size:61.44px;line-height:1.2;letter-spacing:0}
+  .h3-zh{font-family:var(--serif-zh);font-weight:500;font-size:36.48px;line-height:1.35}
+  .body-zh{font-family:var(--sans-zh);font-weight:400;font-size:max(15px,23.424px);line-height:1.75;opacity:.82;letter-spacing:.01em}
+  .body-serif{font-family:var(--serif-zh);font-weight:400;font-size:max(15px,24.96px);line-height:1.65;opacity:.88}
+  .lead{font-family:var(--serif-zh);font-weight:400;font-size:36.48px;line-height:1.4;opacity:.85}
+  .meta{font-family:var(--mono);font-size:max(11px,16.896px);letter-spacing:.16em;text-transform:uppercase;opacity:.6}
+  .big-num{font-family:var(--serif-en);font-weight:800;font-size:192px;line-height:.85;letter-spacing:-.03em;font-feature-settings:"tnum"}
+  .mid-num{font-family:var(--serif-en);font-weight:700;font-size:105.6px;line-height:.88;letter-spacing:-.02em;font-feature-settings:"tnum"}
+  .ghost{font-family:var(--serif-en);font-weight:900;font-size:652.8px;line-height:.8;opacity:.06;letter-spacing:-.04em;position:absolute;font-feature-settings:"tnum"}
+  em{font-style:italic;font-family:var(--serif-en)}
+  .en{font-family:var(--serif-en);font-style:italic;font-weight:500}
+
+  /* ============ 布局工具 ============ */
+  .col{display:flex;flex-direction:column;gap:25.92px}
+  .row{display:flex;align-items:center;gap:57.6px}
+  .grid-6{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:76.8px 115.2px;flex:1;align-content:center;padding:21.6px 0}
+  .grid-9{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:32.4px 76.8px;flex:1;align-content:center}
+  .grid-4{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:43.2px 115.2px;flex:1;align-content:center}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:76.8px;flex:1;align-content:center}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:76.8px;flex:1;align-items:center}
+  .split-55{display:grid;grid-template-columns:55fr 45fr;gap:96px;flex:1;align-items:stretch}
+  .fill{flex:1}
+  .center{align-items:center;justify-content:center;text-align:center}
+  .bottom-left{position:absolute;left:115.2px;bottom:97.2px;max-width:960px}
+  .bottom-right{position:absolute;right:115.2px;bottom:97.2px;max-width:960px;text-align:right}
+  .top-right{position:absolute;right:115.2px;top:64.8px;text-align:right}
+
+  /* ============ Stat（数字矩阵） ============ */
+  .stat{display:flex;flex-direction:column;gap:10.8px;align-items:flex-start}
+  .stat .n{font-family:var(--serif-en);font-weight:800;font-size:153.6px;line-height:.88;letter-spacing:-.03em;font-feature-settings:"tnum"}
+  .stat .l{font-family:var(--sans-zh);font-size:max(13px,20.16px);opacity:.7;margin-top:10.8px;font-weight:400;line-height:1.5}
+  .stat .m{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.5;margin-bottom:2.16px}
+
+  /* ============ Market rhythm（新能源二手车节奏图） ============ */
+  .market-chart{height:388px;display:grid;grid-template-columns:repeat(4,1fr);gap:26px;align-items:end;padding:0 15px;border-bottom:1px solid rgba(var(--ink-rgb),.35)}
+  .market-bar{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8.64px}
+  .market-bar .value{font-family:var(--serif-en);font-weight:700;font-size:45px;line-height:1;letter-spacing:-.03em}
+  .market-bar .value .unit{font-family:var(--serif-zh);font-size:.52em;font-weight:600;letter-spacing:0;margin-left:.08em}
+  .market-bar .col{width:72%;min-height:32px;background:var(--ink);border-radius:2px 2px 0 0}
+  .market-bar .col.forecast{background:linear-gradient(180deg,var(--ink),rgba(var(--ink-rgb),.55))}
+  .market-bar .month{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;opacity:.68}
+  .market-bar .yoy{display:none}
+  .cumulative-curve{width:100%;margin:18px 0 0;padding-top:10px;border-top:1px solid rgba(var(--ink-rgb),.28)}
+  .curve-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:2.16px}
+  .curve-head .meta:last-child{opacity:.72}
+  .curve-svg{display:block;width:100%;height:252px;overflow:visible}
+  .curve-grid{stroke:rgba(var(--ink-rgb),.15);stroke-width:1;stroke-dasharray:5 8}
+  .curve-area{fill:rgba(var(--ink-rgb),.08)}
+  .curve-line{fill:none;stroke:var(--ink);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+  .curve-dot{fill:var(--paper);stroke:var(--ink);stroke-width:4}
+  .curve-value{font-family:var(--serif-en);font-size:28px;font-weight:700;fill:var(--ink);letter-spacing:-1px;paint-order:stroke;stroke:var(--paper);stroke-width:8px;stroke-linejoin:round}
+  .curve-month{font-family:var(--mono);font-size:11px;fill:var(--ink);letter-spacing:2px;opacity:.68}
+  .curve-note{font-family:var(--sans-zh);font-size:13px;fill:var(--ink);opacity:.68}
+  .scenario-band{padding:15.12px 23.04px;border-left:3px solid var(--ink);background:rgba(var(--ink-rgb),.06);display:flex;flex-direction:column;gap:3.78px}
+  .scenario-band strong{font-family:var(--serif-en);font-weight:700;font-size:63.36px;line-height:1;letter-spacing:-.03em}
+  .scenario-band span{font-family:var(--sans-zh);font-size:max(12px,17.28px);opacity:.72}
+  .trend-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .trend-card{padding:14px 16px;background:rgba(var(--ink-rgb),.055);border-top:1px solid rgba(var(--ink-rgb),.28)}
+  .trend-card .n{font-family:var(--serif-en);font-size:40px;font-weight:800;line-height:.95;letter-spacing:-.03em}
+  .trend-card .n .unit{font-family:var(--serif-zh);font-size:.48em;font-weight:600;letter-spacing:0;margin-left:.08em}
+  .trend-card .l{margin-top:6px;font-family:var(--sans-zh);font-size:13px;line-height:1.3;opacity:.72}
+  .fund-hero{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:end}
+  .fund-ask-card{border-left:3px solid var(--ink);padding:16px 0 16px 24px;background:linear-gradient(90deg,rgba(var(--ink-rgb),.06),rgba(var(--ink-rgb),0))}
+  .fund-ask-card .nb{font-family:var(--serif-en);font-size:86px;font-weight:800;line-height:.88;letter-spacing:-.04em}
+  .fund-ask-card .nb .unit{font-family:var(--serif-zh);font-size:.35em;font-weight:600;margin-left:.08em}
+  .fund-ask-card .sub{font-family:var(--mono);font-size:12px;letter-spacing:.18em;opacity:.62;margin-top:10px}
+  .fund-strip{margin-top:22px;border-top:1px solid rgba(var(--ink-rgb),.32);border-bottom:1px solid rgba(var(--ink-rgb),.24);padding:14px 0 12px}
+  .fund-strip-track{height:20px;display:flex;overflow:hidden;background:rgba(var(--ink-rgb),.11)}
+  .fund-seg{height:100%;background:var(--ink);transform-origin:left center}
+  .fund-seg:nth-child(n+2){border-left:2px solid var(--paper)}
+  .fund-strip-labels{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;margin-top:10px}
+  .fund-strip-labels div{font-family:var(--sans-zh);font-size:13px;line-height:1.25;opacity:.74}
+  .fund-strip-labels strong{display:block;font-family:var(--serif-zh);font-size:18px;color:var(--ink);opacity:1}
+  .fund-board{display:grid;grid-template-columns:.92fr .86fr 1.08fr;gap:22px;margin-top:22px;align-items:stretch}
+  .fund-stack{display:grid;grid-template-columns:1fr;gap:9px}
+  .fund-lane{min-height:98px;padding:12px 13px;border-top:1px solid rgba(var(--ink-rgb),.32);background:rgba(var(--ink-rgb),.04);display:flex;flex-direction:column}
+  .fund-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
+  .fund-amt{font-family:var(--serif-en);font-weight:800;font-size:31px;line-height:.9;letter-spacing:-.03em}
+  .fund-amt .unit{font-family:var(--serif-zh);font-size:.42em;font-weight:600;margin-left:.08em}
+  .fund-pct{font-family:var(--mono);font-size:11px;letter-spacing:.18em;opacity:.62}
+  .fund-name{margin-top:6px;font-family:var(--serif-zh);font-size:18px;font-weight:700;line-height:1.16}
+  .fund-desc{margin-top:4px;font-family:var(--sans-zh);font-size:12px;line-height:1.35;opacity:.76}
+  .fund-bar{height:5px;margin-top:auto;background:rgba(var(--ink-rgb),.12);overflow:hidden}
+  .fund-bar span{display:block;height:100%;background:var(--ink);transform-origin:left center}
+  .fund-panel{padding:16px 18px;border-top:1px solid rgba(var(--ink-rgb),.35);background:rgba(var(--ink-rgb),.05);height:100%}
+  .fund-panel.outline{background:transparent;border:1px solid rgba(var(--ink-rgb),.26);padding:16px 18px}
+  .fund-bars{height:332px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:end;padding:12px 6px 18px;position:relative}
+  .fund-bars::after{content:"";position:absolute;left:6px;right:6px;bottom:0;height:1px;background:rgba(var(--ink-rgb),.32)}
+  .fund-col{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:9px}
+  .fund-col .nb{font-family:var(--serif-en);font-weight:800;font-size:29px;line-height:.9;letter-spacing:-.03em}
+  .fund-col .nb .unit{font-family:var(--serif-zh);font-size:.42em;font-weight:600;margin-left:.06em}
+  .fund-col .bar{width:70%;min-height:28px;background:var(--ink);border-radius:2px 2px 0 0;transform-origin:center bottom}
+  .fund-col .label{font-family:var(--sans-zh);font-size:11px;line-height:1.12;text-align:center;opacity:.72;min-height:25px}
+  .fund-photo{display:grid;grid-template-columns:1fr;gap:12px;align-items:start}
+  .fund-photo .frame-img{height:204px}
+  .fund-bullets{display:grid;grid-template-columns:1fr;gap:8px}
+  .fund-bullet{border-top:1px solid rgba(var(--ink-rgb),.28);padding:8px 0 0 10px;font-family:var(--sans-zh);font-size:13px;line-height:1.3;opacity:.78}
+  .fund-bullet strong{display:block;font-family:var(--serif-zh);font-size:18px;line-height:1.15;color:var(--ink);margin-bottom:2px}
+  .econ-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:72px;align-items:start;margin-top:26px}
+  .econ-hero{border-left:3px solid var(--ink);padding-left:28px}
+  .econ-hero .nb{font-family:var(--serif-en);font-size:112px;font-weight:800;line-height:.88;letter-spacing:-.045em}
+  .econ-hero .nb .unit{font-family:var(--serif-zh);font-size:.32em;font-weight:600;margin-left:.08em;letter-spacing:0}
+  .econ-hero .txt{font-family:var(--sans-zh);font-size:22px;line-height:1.6;opacity:.76;margin-top:18px;max-width:660px}
+  .econ-strip{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .econ-kpi{padding:18px 18px;border-top:1px solid rgba(var(--ink-rgb),.32);background:rgba(var(--ink-rgb),.055);min-height:130px}
+  .econ-kpi .n{font-family:var(--serif-en);font-size:48px;font-weight:800;line-height:.92;letter-spacing:-.035em}
+  .econ-kpi .n .unit{font-family:var(--serif-zh);font-size:.44em;font-weight:600;margin-left:.06em;letter-spacing:0}
+  .econ-kpi .l{font-family:var(--sans-zh);font-size:14px;line-height:1.38;opacity:.72;margin-top:9px}
+  .econ-board{display:grid;grid-template-columns:1fr;gap:15px}
+  .econ-row{display:grid;grid-template-columns:180px 1fr 145px;gap:18px;align-items:center;padding:16px 0;border-top:1px solid rgba(var(--ink-rgb),.24)}
+  .econ-row .k{font-family:var(--mono);font-size:12px;letter-spacing:.18em;opacity:.58;text-transform:uppercase}
+  .econ-row .v{font-family:var(--serif-zh);font-size:28px;line-height:1.22;font-weight:700}
+  .econ-row .d{font-family:var(--sans-zh);font-size:14px;line-height:1.38;opacity:.72;text-align:right}
+  .econ-chain{margin-top:22px;padding:18px 20px;background:rgba(var(--ink-rgb),.055);border-left:3px solid var(--ink)}
+  .econ-chain-title{font-family:var(--serif-zh);font-size:25px;font-weight:700;line-height:1.2}
+  .econ-chain-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+  .econ-step{font-family:var(--sans-zh);font-size:14px;line-height:1.35;padding:11px 12px;background:rgba(var(--ink-rgb),.06);border-top:1px solid rgba(var(--ink-rgb),.2)}
+  .econ-step strong{display:block;font-family:var(--serif-zh);font-size:18px;line-height:1.15;color:var(--ink);margin-bottom:4px}
+  .shareholding{display:flex;flex-direction:column;gap:28.08px}
+  .shareholding-head{display:flex;justify-content:space-between;align-items:flex-end;gap:19.2px;margin-bottom:8.64px}
+  .shareholding-name{font-family:var(--serif-zh);font-weight:700;font-size:25.92px;line-height:1.25}
+  .shareholding-role{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-top:4.86px}
+  .shareholding-pct{font-family:var(--serif-en);font-size:76.8px;line-height:.85;font-weight:700;letter-spacing:-.04em}
+  .share-track{height:60.48px;background:rgba(var(--paper-rgb),.12);overflow:hidden}
+  .share-fill{height:100%;transform-origin:left center}
+  .share-fill.primary{width:85%;background:var(--paper)}
+  .share-fill.secondary{width:15%;background:var(--paper-tint)}
+  .qr-card{width:144px;padding:8px;background:#fff;border-radius:4px;box-shadow:0 12px 28px rgba(0,0,0,.16)}
+  .qr-card img{display:block;width:100%;height:auto}
+  .cover-logo{display:block;width:144px;height:auto;margin-top:2.16px}
+  .ceo-layout{display:grid;grid-template-columns:360px 1fr;gap:58px;margin-top:24px;align-items:start}
+  .ceo-media{position:relative;min-height:auto;display:flex;flex-direction:column;gap:18px}
+  .ceo-portrait{height:390px;border:1px solid rgba(var(--ink-rgb),.18);background:rgba(var(--ink-rgb),.04)}
+  .ceo-portrait img{object-fit:cover;object-position:center 28%}
+  .ceo-side-card{padding:18px 20px;border-top:1px solid rgba(var(--ink-rgb),.28);background:rgba(var(--ink-rgb),.04)}
+  .ceo-side-name{font-family:var(--serif-zh);font-size:34px;line-height:1.12;font-weight:700}
+  .ceo-side-role{font-family:var(--mono);font-size:11px;letter-spacing:.16em;opacity:.62;margin-top:7px}
+  .ceo-side-copy{font-family:var(--sans-zh);font-size:14px;line-height:1.5;opacity:.75;margin-top:12px}
+  .ceo-main{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+  .ceo-copy{min-width:0}
+  .ceo-title{font-family:var(--serif-zh);font-size:70px;line-height:1.04;font-weight:700;letter-spacing:-.015em}
+  .ceo-sub{font-family:var(--sans-zh);font-size:20px;line-height:1.65;opacity:.78;margin-top:15px;max-width:930px}
+  .ceo-proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:0}
+  .ceo-proof{padding:16px 16px;border-top:1px solid rgba(var(--ink-rgb),.3);background:rgba(var(--ink-rgb),.045);min-height:118px}
+  .ceo-proof .n{font-family:var(--serif-en);font-size:44px;line-height:.9;font-weight:800;letter-spacing:-.03em}
+  .ceo-proof .n .unit{font-family:var(--serif-zh);font-size:.45em;font-weight:600;margin-left:.05em}
+  .ceo-proof .l{font-family:var(--sans-zh);font-size:13px;line-height:1.36;opacity:.72;margin-top:8px}
+  .ceo-thesis{margin-top:20px;padding:20px 25px;border-left:3px solid var(--ink);background:rgba(var(--ink-rgb),.055);font-family:var(--serif-zh);font-size:26px;line-height:1.48;font-weight:500}
+  .ceo-track{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+  .ceo-track-row{padding:15px 17px;border-top:1px solid rgba(var(--ink-rgb),.22);background:rgba(var(--ink-rgb),.035);align-items:start;min-height:124px}
+  .ceo-track-row .d{font-family:var(--sans-zh);font-size:15px;line-height:1.45;opacity:.78}
+  .ceo-track-row strong{display:block;font-family:var(--serif-zh);font-size:21px;line-height:1.2;color:var(--ink);margin-bottom:6px}
+
+  /* ============ Callout（引用框） ============ */
+  .callout{padding:32.4px 46.08px;border-left:3px solid currentColor;position:relative;font-family:var(--serif-zh);font-size:max(15px,23.04px);line-height:1.55;opacity:.92}
+  .slide.light .callout{background:rgba(var(--ink-rgb),.05)}
+  .slide.dark .callout{background:rgba(var(--paper-rgb),.06)}
+  .callout .cite{display:block;margin-top:17.28px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.6}
+  .callout .q-big{font-family:var(--serif-zh);font-weight:600;font-size:max(17px,30.72px);line-height:1.42}
+
+  /* ============ Platform（平台卡） ============ */
+  .plat{display:flex;flex-direction:column;justify-content:flex-end;padding:21.6px 0;border-top:1px solid currentColor;border-color:rgba(127,127,127,.35)}
+  .plat .name{font-family:var(--serif-zh);font-weight:700;font-size:34.56px;margin-bottom:6.48px}
+  .plat .nb{font-family:var(--serif-en);font-weight:700;font-size:61.44px;letter-spacing:-.02em;line-height:1;font-feature-settings:"tnum"}
+  .plat .sub{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.55;margin-top:6.48px}
+  .plat .fill{font-family:var(--sans-zh);font-weight:300;font-size:46.08px;opacity:.28;letter-spacing:-.01em;line-height:1}
+
+  /* ============ Rowline（表格行） ============ */
+  .rowline{display:grid;grid-template-columns:1fr 2fr 1fr;gap:38.4px;padding:23.76px 0;border-top:1px solid currentColor;align-items:center;border-color:rgba(127,127,127,.25)}
+  .rowline:last-child{border-bottom:1px solid currentColor;border-color:rgba(127,127,127,.25)}
+  .rowline .k{font-family:var(--serif-zh);font-weight:700;font-size:32.64px}
+  .rowline .v{font-family:var(--sans-zh);font-weight:400;font-size:max(14px,23.04px);opacity:.85;line-height:1.55}
+  .rowline .m{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.6;justify-self:end}
+  .roadmap-row .v{font-size:18px;font-weight:300;line-height:1.52;opacity:.72}
+
+  /* ============ Pillar（支柱卡片） ============ */
+  .pillar{display:flex;flex-direction:column;gap:19.44px}
+  .pillar .ic{font-family:var(--serif-en);font-style:italic;font-size:49.92px;opacity:.45;font-weight:400}
+  .pillar .ic svg{width:53.76px;height:53.76px;stroke-width:1.2;opacity:.7}
+  .pillar .t{font-family:var(--serif-zh);font-weight:700;font-size:46.08px;line-height:1.1}
+  .pillar .d{font-family:var(--sans-zh);font-weight:400;font-size:max(14px,21.12px);opacity:.76;line-height:1.6}
+
+  /* ============ Signature / Highlight ============ */
+  .sign{font-family:var(--serif-en);font-style:italic;font-weight:500;font-size:38.4px;opacity:.7}
+  .hi{position:relative;display:inline}
+  .slide.dark .hi::after{content:"";position:absolute;left:-.1em;right:-.1em;bottom:-.05em;height:.28em;background:rgba(var(--paper-rgb),.15);z-index:-1}
+  .slide.light .hi::after{content:"";position:absolute;left:-.1em;right:-.1em;bottom:-.05em;height:.28em;background:rgba(var(--ink-rgb),.08);z-index:-1}
+
+  /* ============ Icons（Lucide via CDN） ============ */
+  .ico{width:1em;height:1em;display:inline-block;vertical-align:-.12em;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+  .ico-lg,.ico-md,.ico-sm{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+  .ico-lg{width:49.92px;height:49.92px;stroke-width:1.2;display:inline-block}
+  .ico-md{width:34.56px;height:34.56px;stroke-width:1.3;display:inline-block;vertical-align:-.4em}
+  .ico-sm{width:21.12px;height:21.12px;stroke-width:1.4;display:inline-block;vertical-align:-.15em;opacity:.7}
+
+  /* ============ 图片占位（虚线框，提示设计师位置） ============ */
+  .img-slot{border:1.5px dashed rgba(127,127,127,.4);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10.8px;padding:21.6px 38.4px;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;opacity:.55;position:relative;aspect-ratio:16/9;width:100%;max-height:604.8px;margin-inline:auto;box-sizing:border-box}
+  .img-slot::before{content:"";position:absolute;inset:8px;border:1px solid currentColor;opacity:.2}
+  .img-slot .plus{font-size:38.4px;font-weight:300;opacity:.5;letter-spacing:0}
+  .img-slot .label{position:relative;z-index:2;text-align:center}
+  .img-slot.r-4x3{aspect-ratio:4/3}
+  .img-slot.r-3x2{aspect-ratio:3/2}
+  .img-slot.r-1x1{aspect-ratio:1/1}
+
+  /* ============ 图片实填框（关键：固定高度 + 只裁底部） ============
+     重要约束：高度用内联 height:Nvh 精确控制，不要用 aspect-ratio（会撑破布局）
+     object-position:top center 保证严禁裁剪顶部和左右，只裁剪底部
+  */
+  .frame-img{overflow:hidden;position:relative;background:rgba(0,0,0,.04);box-sizing:border-box;width:100%;border-radius:4px}
+  .slide.dark .frame-img{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12)}
+  .frame-img > img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .frame-img.fit-contain > img{object-fit:contain;object-position:center center}
+  .frame-img.r-16x9{aspect-ratio:16/9;max-height:691.2px}
+  .frame-img.r-16x10{aspect-ratio:16/10;max-height:604.8px}
+  .frame-img.r-4x3{aspect-ratio:4/3;max-height:604.8px}
+  .frame-img.r-3x2{aspect-ratio:3/2;max-height:496.8px}
+  .frame-img.r-3x4{aspect-ratio:3/4;max-height:648px}
+  .frame-img.r-1x1{aspect-ratio:1/1;max-height:540px}
+  .frame-img.h-16{height:172.8px}
+  .frame-img.h-18{height:194.4px}
+  .frame-img.h-22{height:237.6px}
+  .frame-img.h-26{height:280.8px}
+  .frame-img.h-28{height:302.4px}
+  .frame-cap{display:flex;justify-content:space-between;align-items:baseline;gap:19.2px;margin-top:8.64px;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.72}
+  .frame-cap .pf{font-family:var(--serif-zh);font-weight:600;font-size:max(13px,19.2px);letter-spacing:.04em;text-transform:none;opacity:.94}
+  .frame-cap .nb{font-family:var(--serif-en);font-style:italic;font-size:max(15px,23.04px);letter-spacing:.02em;text-transform:none;opacity:.88}
+  .frame-cap .idx{font-family:var(--mono);opacity:.5}
+  figure.tile{display:flex;flex-direction:column;margin:0;min-width:0}
+  figure.tile > .frame-img{flex:0 0 auto}
+
+  /* ============ 导航 ============ */
+  #nav{position:fixed;left:50%;bottom:28.08px;transform:translateX(-50%);z-index:30;display:flex;gap:10px;padding:8px 14px;border-radius:999px;background:rgba(0,0,0,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  #nav .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s ease;border:0;padding:0}
+  #nav .dot:hover{background:rgba(255,255,255,.5);transform:scale(1.15)}
+  #nav .dot.active{background:rgba(255,255,255,.95);width:22px;border-radius:999px}
+  body.light-bg #nav{background:rgba(255,255,255,.25)}
+  body.light-bg #nav .dot{background:rgba(var(--ink-rgb),.25)}
+  body.light-bg #nav .dot.active{background:rgba(var(--ink-rgb),.9)}
+  #hint{position:fixed;bottom:32.4px;right:57.6px;z-index:30;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.4;mix-blend-mode:difference;color:#aaa}
+  body.low-power #hint{opacity:.72;color:var(--paper);mix-blend-mode:normal}
+  body.light-bg.low-power #hint{color:var(--ink)}
+  #rotate-hint{display:none;position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;padding:12vw;text-align:center;background:var(--ink);color:var(--paper);font-family:var(--serif-zh);font-size:min(8vw,32px);line-height:1.55}
+  #rotate-hint small{display:block;margin-top:2vh;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.62}
+
+  /* ============================================================
+     ============ LAYOUTS API · 面向 agent 的类（v2）============
+     所有 layouts.md 中的骨架都基于下面这套命名。
+     如果你在 layouts.md 里看到某个类，它必须在下面有定义。
+     ============================================================ */
+
+  /* ---------- .frame：每页主内容容器 ---------- */
+  .frame{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+  /* 当 .frame 同时加了 grid 类时，grid 的 display:grid 覆盖 flex */
+  .frame.grid-2-7-5,
+  .frame.grid-2-6-6,
+  .frame.grid-2-8-4,
+  .frame.grid-3-3,
+  .frame.grid-6{display:grid}
+
+  /* ---------- 标题层级（API 名称，衬线为主） ---------- */
+  .h-hero{
+    font-family:var(--serif-zh);
+    font-weight:900;
+    font-size:192px;
+    line-height:.96;
+    letter-spacing:-.02em;
+  }
+  .h-xl{
+    font-family:var(--serif-zh);
+    font-weight:700;
+    font-size:119.04px;
+    line-height:1.08;
+    letter-spacing:-.01em;
+  }
+  .h-sub{
+    font-family:var(--serif-zh);
+    font-weight:500;
+    font-size:59.52px;
+    line-height:1.25;
+    letter-spacing:0;
+    opacity:.7;
+  }
+  .h-md{
+    font-family:var(--serif-zh);
+    font-weight:600;
+    font-size:44.16px;
+    line-height:1.3;
+  }
+  /* 英文标题专用（Playfair 衬线） */
+  .h-hero-en,.h-xl-en{font-family:var(--serif-en);letter-spacing:-.025em}
+
+  /* ---------- lead 引语 ---------- */
+  .lead{
+    font-family:var(--serif-zh);
+    font-weight:400;
+    font-size:33.6px;
+    line-height:1.5;
+    opacity:.86;
+  }
+
+  /* ---------- meta-row 底部元数据 ---------- */
+  .meta-row{
+    display:flex;
+    gap:1.2em;
+    align-items:baseline;
+    flex-wrap:wrap;
+    font-family:var(--mono);
+    font-size:max(12px,17.664px);
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    opacity:.6;
+  }
+
+  /* ---------- stat-card（数据大字报用） ---------- */
+  .stat-card{
+    display:flex;
+    flex-direction:column;
+    gap:8.64px;
+    align-items:flex-start;
+    padding-top:17.28px;
+    border-top:1px solid currentColor;
+    border-color:rgba(127,127,127,.3);
+  }
+  .stat-card .stat-label{
+    font-family:var(--mono);
+    font-size:max(10px,14.976px);
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    opacity:.55;
+  }
+  .stat-card .stat-nb{
+    font-family:var(--serif-en);
+    font-weight:800;
+    font-size:111.36px;
+    line-height:.9;
+    letter-spacing:-.03em;
+    font-feature-settings:"tnum";
+    margin-top:4.32px;
+  }
+  .stat-card .stat-nb .stat-unit{
+    font-family:var(--serif-zh);
+    font-weight:500;
+    font-size:.38em;
+    letter-spacing:0;
+    opacity:.72;
+    margin-left:.14em;
+  }
+  .stat-card .stat-note{
+    font-family:var(--sans-zh);
+    font-weight:400;
+    font-size:max(13px,20.16px);
+    line-height:1.5;
+    opacity:.72;
+    margin-top:6.48px;
+  }
+  /* 当 stat-card 用于 grid-4（2x2），数字适度放大；若页面有标题+引文在上方，可内联 style 覆盖为更小值 */
+  .grid-4 .stat-card .stat-nb{font-size:96px;min-height:88.32px;display:flex;align-items:flex-end}
+  /* 当只有 3 个，字也可以稍大 */
+  .grid-3 .stat-card .stat-nb{font-size:130.56px}
+
+  /* ---------- pipeline（流水线） ---------- */
+  .pipeline-section{
+    margin-top:47.52px;
+    padding-top:30.24px;
+    border-top:1px dashed rgba(127,127,127,.32);
+  }
+  .pipeline-section:first-of-type{
+    border-top:0;
+    padding-top:0;
+    margin-top:32.4px;
+  }
+  .pipeline-label{
+    font-family:var(--mono);
+    font-size:max(11px,16.32px);
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    opacity:.62;
+    margin-bottom:23.76px;
+  }
+  .pipeline{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:23.04px;
+  }
+  .pipeline[data-cols="3"]{grid-template-columns:repeat(3,1fr)}
+  .pipeline[data-cols="4"]{grid-template-columns:repeat(4,1fr)}
+  .pipeline[data-cols="6"]{grid-template-columns:repeat(6,1fr)}
+  .step{
+    display:flex;
+    flex-direction:column;
+    gap:8.64px;
+    padding-top:15.12px;
+    border-top:1px solid currentColor;
+    border-color:rgba(127,127,127,.35);
+  }
+  .step-nb{
+    font-family:var(--serif-en);
+    font-style:italic;
+    font-weight:500;
+    font-size:22.08px;
+    opacity:.45;
+  }
+  .step-title{
+    font-family:var(--sans-zh);
+    font-weight:700;
+    font-size:29.76px;
+    letter-spacing:.01em;
+    line-height:1.2;
+  }
+  .step-desc{
+    font-family:var(--sans-zh);
+    font-weight:400;
+    font-size:max(12px,18.24px);
+    line-height:1.45;
+    opacity:.72;
+  }
+
+  /* ---------- 网格（layouts.md 所用） ---------- */
+  /* 这些类独立挂到任何容器上都能生效，不依赖 .frame 复合选择器 */
+  .grid-2-7-5{display:grid;grid-template-columns:7fr 5fr;gap:57.6px 43.2px;align-items:start}
+  .grid-2-6-6{display:grid;grid-template-columns:1fr 1fr;gap:57.6px 43.2px;align-items:start}
+  .grid-2-8-4{display:grid;grid-template-columns:8fr 4fr;gap:57.6px 43.2px;align-items:start}
+  .grid-3-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-auto-rows:minmax(0,1fr);
+    gap:25.92px 38.4px;
+  }
+  /* grid-6 已在旧样式里定义为 3x2，这里仅补 align */
+
+  /* ---------- 图片 frame-img（layouts.md 主命名） ---------- */
+  /* 在旧样式里已定义，这里补 img-cap 命名别名与增强 */
+  figure.frame-img{margin:0;display:flex;flex-direction:column;min-width:0}
+  .img-cap{
+    display:block;
+    margin-top:8.64px;
+    font-family:var(--mono);
+    font-size:max(10px,15.36px);
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    opacity:.6;
+  }
+  /* callout src 命名别名 */
+  .callout-src{
+    display:block;
+    margin-top:17.28px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    opacity:.6;
+  }
+
+  /* ---------- 获客资产与交易闭环 ---------- */
+  .proof-layout{display:grid;grid-template-columns:7fr 5fr;gap:57.6px;align-items:stretch;min-height:0}
+  .proof-stack{display:flex;flex-direction:column;gap:14.04px;min-height:0}
+  .proof-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:19.2px}
+  .proof-kpi{padding:11.88px 19.2px;border-top:1px solid currentColor;background:rgba(127,127,127,.055)}
+  .proof-kpi .n{font-family:var(--serif-en);font-size:47.04px;font-weight:800;line-height:.95;letter-spacing:-.03em}
+  .proof-kpi .l{margin-top:4.86px;font-family:var(--sans-zh);font-size:max(11px,14.976px);line-height:1.35;opacity:.7}
+  .matrix-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8.1px 19.2px}
+  .matrix-item{display:grid;grid-template-columns:1.25fr .75fr;gap:13.44px;padding:8.424px 16.32px;border-left:2px solid currentColor;background:rgba(127,127,127,.055);align-items:center}
+  .matrix-item .t{font-family:var(--serif-zh);font-size:max(13px,19.2px);font-weight:700}
+  .matrix-item .d{font-family:var(--mono);font-size:10px;line-height:1.3;letter-spacing:.08em;text-transform:uppercase;opacity:.58;text-align:right}
+  .org-strip{display:grid;grid-template-columns:1.4fr auto 1fr auto 1fr auto 1fr;gap:11.52px;align-items:center;padding:12.96px 19.2px;background:rgba(127,127,127,.06);border-top:1px solid currentColor}
+  .org-node{font-family:var(--sans-zh);font-size:max(12px,17.664px);font-weight:700;line-height:1.25}
+  .org-node small{display:block;margin-top:3.24px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;opacity:.58}
+  .org-arrow{font-family:var(--serif-en);font-size:28.8px;opacity:.48}
+  .evidence-pair{display:grid;grid-template-columns:1.15fr .85fr;gap:19.2px;height:100%;align-items:end}
+  .evidence-card{position:relative;overflow:hidden;min-height:0;background:rgba(127,127,127,.08);border:1px solid rgba(127,127,127,.18)}
+  .evidence-card img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+  .evidence-card.fit-natural{background:transparent;border:0}
+  .evidence-card.fit-natural img{height:auto;object-fit:contain;object-position:center bottom}
+  .evidence-card .cap{position:absolute;left:0;right:0;bottom:0;padding:14.04px 19.2px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.78));color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;line-height:1.5}
+  .evidence-card .cap strong{display:block;font-family:var(--serif-zh);font-size:max(13px,20.16px);letter-spacing:.03em;text-transform:none}
+  .flow-strip{display:grid;grid-template-columns:repeat(9,auto);gap:11.904px;align-items:center;margin-top:12.96px}
+  .flow-step{padding:11.34px 18.24px;border-top:1px solid currentColor;background:rgba(127,127,127,.06);min-height:70.2px}
+  .flow-step .n{font-family:var(--serif-en);font-style:italic;font-size:20.16px;opacity:.5}
+  .flow-step .t{display:block;margin-top:2.7px;font-family:var(--sans-zh);font-size:max(13px,20.16px);font-weight:700}
+  .flow-step .d{display:block;margin-top:1.944px;font-family:var(--sans-zh);font-size:max(10px,13.824px);opacity:.65;white-space:nowrap}
+  .flow-arrow{font-family:var(--serif-en);font-size:29.76px;opacity:.45}
+  .flow-bottom{display:grid;grid-template-columns:7fr 5fr;gap:57.6px;margin-top:19.44px;min-height:0}
+  .channel-list{display:flex;flex-direction:column;gap:6.048px}
+  .channel-row{display:grid;grid-template-columns:1.38fr 3.8fr .78fr;gap:15.36px;align-items:center}
+  .channel-row .name{font-family:var(--sans-zh);font-size:max(12px,17.28px);font-weight:700}
+  .channel-row .track{height:16.2px;background:rgba(127,127,127,.12);overflow:hidden}
+  .channel-row .fillbar{height:100%;background:currentColor;transform-origin:left center}
+  .channel-row .pct{font-family:var(--mono);font-size:10px;text-align:right;letter-spacing:.08em;opacity:.68}
+  .loop-side{display:grid;grid-template-rows:auto 1fr;gap:11.88px;min-height:0}
+  .loop-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14.4px}
+  .loop-kpi{padding:9.72px 13.824px;border-top:1px solid currentColor;background:rgba(127,127,127,.055)}
+  .loop-kpi .n{font-family:var(--serif-en);font-size:38.4px;font-weight:800;line-height:.95}
+  .loop-kpi .l{margin-top:3.78px;font-family:var(--sans-zh);font-size:max(10px,13.44px);line-height:1.3;opacity:.68}
+  .loop-evidence{display:grid;grid-template-columns:1fr 1fr;gap:17.28px;min-height:0}
+  .loop-evidence .evidence-card{min-height:183.6px}
+
+  /* ---------- chrome & foot 补位（layouts.md 简单写法） ---------- */
+  .chrome{font-family:var(--mono);font-size:max(11px,14.976px);letter-spacing:.2em;text-transform:uppercase;opacity:.62}
+  .foot{font-family:var(--mono);font-size:max(11px,14.976px);letter-spacing:.18em;text-transform:uppercase;opacity:.5}
+
+  /* ============ 动效系统(Motion One 驱动) ============
+     所有 [data-anim] 元素默认隐藏,进入页面时由 JS 逐个揭示。
+     - cascade(默认):按 DOM 顺序 stagger 120ms 淡入 + y:16→0
+     - hero(hero 页自动):慢一点的 stagger 180ms
+     - quote(含 [data-anim="line"]):逐行 600ms 淡入
+     - directional(含 [data-anim="left|right"]):左→分隔线→右
+     - pipeline(data-animate="pipeline"):Space/→ 手动推进
+     Motion One 没加载成功时(CDN 断 + 本地丢),所有 [data-anim] 会兜底显示。
+  */
+  [data-anim]{opacity:1}
+  body.motion-ready [data-anim]{opacity:0}
+  body.motion-ready [data-anim="left"]{transform:translateX(-24px)}
+  body.motion-ready [data-anim="right"]{transform:translateX(24px)}
+  body.motion-ready [data-anim="line"]{opacity:0;transform:translateY(10px)}
+  body.motion-ready [data-bar-anim="x"]{transform:scaleX(0)}
+  body.motion-ready [data-bar-anim="y"]{transform:scaleY(0)}
+  body.motion-ready [data-animate="pipeline"] [data-anim]{opacity:.15}
+  body.low-power #deck{transition:none!important}
+  body.low-power *,
+  body.low-power *::before,
+  body.low-power *::after{animation:none!important;transition:none!important}
+  body.low-power.motion-ready [data-anim],
+  body.low-power [data-anim]{opacity:1!important;transform:none!important}
+  body.low-power [data-bar-anim]{transform:none!important}
+
+  /* ---------- 手机端：横屏时沿用固定舞台；密码页按移动端登录卡适配 ---------- */
+  @supports (height:100dvh){
+    #auth-gate{min-height:100dvh}
+  }
+  @media (max-width:900px), (pointer:coarse){
+    #auth-gate{padding:16px;align-items:center;justify-items:center;overflow:auto;-webkit-overflow-scrolling:touch;background:
+      radial-gradient(circle at 50% 20%,rgba(var(--paper-rgb),.08),transparent 34%),
+      var(--ink)}
+    .auth-card{width:calc(100vw - 32px);max-width:340px;max-height:calc(100svh - 32px);overflow:auto;padding:26px 20px;border-color:rgba(var(--paper-rgb),.2);box-shadow:0 18px 60px rgba(0,0,0,.24)}
+    .auth-kicker{font-size:9px;letter-spacing:.18em;white-space:normal;line-height:1.5}
+    .auth-title{font-size:28px;line-height:1.18;margin-top:13px}
+    .auth-copy{font-size:13px;line-height:1.55;margin-top:10px}
+    .auth-form{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:22px}
+    .auth-form input,.auth-form button{display:block;width:100%;max-width:100%;min-width:0;height:46px;font-size:15px}
+    .auth-form button{padding:0}
+    .auth-error{font-size:12px;margin-top:8px}
+    .welcome-word{font-size:48px;letter-spacing:.12em}
+    .welcome-word::after{width:88px;margin-top:18px}
+  }
+  @supports (height:100dvh){
+    @media (max-width:900px), (pointer:coarse){
+      .auth-card{max-height:calc(100dvh - 32px)}
+    }
+  }
+  @media (max-width:700px) and (orientation:portrait){
+    #rotate-hint{display:flex}
+  }
+  @media (max-height:600px){
+    #hint{display:none}
+    #nav{bottom:12px;padding:6px 12px}
+    .auth-card{padding:24px 28px}
+    .auth-title{font-size:30px;margin-top:12px}
+    .auth-copy{font-size:13px;line-height:1.5}
+    .auth-form{margin-top:18px}
+    .auth-form input,.auth-form button{height:42px}
+  }
+</style>
+</head>
+<body class="auth-locked">
+<div id="auth-gate" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+  <div class="auth-card">
+    <div class="auth-kicker">WA LIANG CHE · PRIVATE DECK</div>
+    <div id="auth-title" class="auth-title">请输入访问密码</div>
+    <div class="auth-copy">本页面为蛙靓车汽车城内部专用，仅供授权查看。</div>
+    <form id="auth-form" class="auth-form">
+      <input id="auth-password" type="password" autocomplete="current-password" placeholder="输入密码" aria-label="访问密码">
+      <button type="submit">进入</button>
+    </form>
+    <div id="auth-error" class="auth-error" aria-live="polite"></div>
+  </div>
+</div>
+<div id="welcome-gate" aria-hidden="true">
+  <canvas id="welcome-canvas"></canvas>
+  <div class="welcome-word">欢迎。</div>
+</div>
+<script>
+  (function(){
+    const AUTH_KEY = 'waliangche-deck-auth-v1';
+    const PASSWORD_HASH = '4bd5adc5d0c765a7f527adfdb53c3281deeea40eaee670cc948a823f1c78ff27';
+    const FALLBACK_PASSWORD = atob('d2FsaWFuZ2NoZTIwMjY=');
+    if(sessionStorage.getItem(AUTH_KEY) === '1'){
+      document.body.classList.remove('auth-locked');
+      return;
+    }
+    async function sha256(text){
+      if(!window.crypto || !crypto.subtle) return '';
+      const data = new TextEncoder().encode(text);
+      const hash = await crypto.subtle.digest('SHA-256', data);
+      return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    }
+    function startWelcomeGL(){
+      const canvas = document.getElementById('welcome-canvas');
+      const gl = canvas && canvas.getContext('webgl', {alpha:false, antialias:true});
+      if(!gl) return ()=>{};
+      const vs = `attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}`;
+      const fs = `precision highp float;
+      uniform vec2 r;uniform float t;
+      float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}
+      float n(vec2 p){vec2 i=floor(p),f=fract(p);float a=h(i),b=h(i+vec2(1,0)),c=h(i+vec2(0,1)),d=h(i+1.0);vec2 u=f*f*(3.0-2.0*f);return mix(a,b,u.x)+(c-a)*u.y*(1.0-u.x)+(d-b)*u.x*u.y;}
+      float f(vec2 p){float v=0.0,a=.5;mat2 m=mat2(.82,.58,-.58,.82);for(int i=0;i<5;i++){v+=a*n(p);p=m*p*2.04;a*=.52;}return v;}
+      void main(){vec2 uv=gl_FragCoord.xy/r.xy;vec2 p=uv;p.x*=r.x/r.y;vec2 c=uv-.5;float d=length(c);vec2 q=vec2(f(p*1.25+t*.055),f(p*1.35+vec2(4.2,1.7)-t*.035));float ink=f(p*2.7+q*1.45+t*.02);float ring=smoothstep(.58,.08,d)*.22;vec3 deep=vec3(.055,.094,.064),base=vec3(.101,.180,.121),moss=vec3(.18,.31,.21);vec3 col=mix(deep,base,.72+.18*ink);col=mix(col,moss,smoothstep(.55,.95,ink)*.28+ring);col+=vec3(n(gl_FragCoord.xy*.75+t*3.0)-.5)*.022;gl_FragColor=vec4(col,1.0);}`;
+      const sh=(type,src)=>{const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s};
+      const prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vs));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(prog);gl.useProgram(prog);
+      const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);
+      const loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+      const lr=gl.getUniformLocation(prog,'r');const lt=gl.getUniformLocation(prog,'t');let raf=0,start=performance.now();
+      const resize=()=>{const d=Math.min(devicePixelRatio||1,2);canvas.width=innerWidth*d;canvas.height=innerHeight*d;gl.viewport(0,0,canvas.width,canvas.height)};
+      const draw=()=>{gl.uniform2f(lr,canvas.width,canvas.height);gl.uniform1f(lt,(performance.now()-start)/1000);gl.drawArrays(gl.TRIANGLES,0,6);raf=requestAnimationFrame(draw)};
+      resize();addEventListener('resize',resize,{passive:true});draw();
+      return ()=>{cancelAnimationFrame(raf);removeEventListener('resize',resize)};
+    }
+    function enterDeck(){
+      if(window.fitStage) window.fitStage();
+      if(window.__playSlide) window.__playSlide(window.__currentSlideIndex || 0);
+    }
+    function showWelcomeThenEnter(){
+      const gate = document.getElementById('welcome-gate');
+      gate && gate.setAttribute('aria-hidden','false');
+      document.body.classList.remove('auth-locked');
+      document.body.classList.add('auth-welcoming');
+      const stopWelcome = startWelcomeGL();
+      setTimeout(()=>{
+        stopWelcome();
+        document.body.classList.remove('auth-welcoming');
+        gate && gate.setAttribute('aria-hidden','true');
+        enterDeck();
+      }, 2400);
+    }
+    addEventListener('DOMContentLoaded',()=>{
+      const form = document.getElementById('auth-form');
+      const input = document.getElementById('auth-password');
+      const error = document.getElementById('auth-error');
+      input && input.focus();
+      form && form.addEventListener('submit', async (event)=>{
+        event.preventDefault();
+        const value = input.value.trim();
+        const hashed = await sha256(value);
+        const ok = hashed ? hashed === PASSWORD_HASH : value === FALLBACK_PASSWORD;
+        if(ok){
+          sessionStorage.setItem(AUTH_KEY,'1');
+          error.textContent = '';
+          showWelcomeThenEnter();
+        }else{
+          error.textContent = '密码不正确，请重新输入。';
+          input.select();
+        }
+      });
+    }, {once:true});
+  })();
+</script>
+<script>
+  (function(){
+    const KEY = 'guizang-ppt-low-power';
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const stored = localStorage.getItem(KEY);
+    window.__lowPowerMode = stored === '1' || (stored === null && reduced);
+    function updateHint(){
+      const hint = document.getElementById('hint');
+      if(hint) hint.textContent = `左半区返回 · 右半区前进 · B ${window.__lowPowerMode ? '动态' : '静态'} · ESC 索引`;
+    }
+    window.__setLowPowerMode = function(on, opts={}){
+      window.__lowPowerMode = !!on;
+      document.body.classList.toggle('low-power', window.__lowPowerMode);
+      if(opts.persist !== false) localStorage.setItem(KEY, window.__lowPowerMode ? '1' : '0');
+      if(window.__lowPowerMode && document.getAnimations){
+        document.getAnimations().forEach(a=>a.cancel());
+      }
+      updateHint();
+      dispatchEvent(new CustomEvent('ppt-low-power-change', {detail:{on:window.__lowPowerMode}}));
+      if(window.__playSlide) window.__playSlide(window.__currentSlideIndex || 0);
+    };
+    document.body.classList.toggle('low-power', window.__lowPowerMode);
+    addEventListener('DOMContentLoaded', updateHint, {once:true});
+  })();
+</script>
+
+<div id="hint">左半区返回 · 右半区前进 · B 静态 · ESC 索引</div>
+<div id="rotate-hint"><div>请横屏查看演示文稿<small>Rotate your phone · Landscape mode</small></div></div>
+
+<div class="deck-viewport">
+<div id="deck-stage" class="deck-stage">
+<div id="deck">
+
+<!-- ============================================================
+     SLIDES 插入区 · 在此处填充所有 <section class="slide ..."> 页面
+     每页模板参考 references/page-patterns.md
+     页面组件参考 references/components.md
+     ============================================================ -->
+
+<!-- SLIDES_HERE -->
+
+<!-- 01 · 封面 -->
+<section class="slide hero dark" data-theme="dark">
+  <div class="chrome">
+    <div>WA LIANG CHE · MAGAZINE EDITION</div>
+    <div>VOL.01 · 2026</div>
+  </div>
+  <div class="frame" style="display:grid;grid-template-columns:1fr auto;gap:96px;align-items:center;min-height:864px">
+    <div>
+      <div class="kicker" data-anim>汽车零售 · 招商合作方案</div>
+      <h1 class="h-hero" style="font-size:165.12px" data-anim>蛙靓车<br>汽车城</h1>
+      <p class="lead" style="margin-top:32.4px;max-width:998.4px" data-anim>专业 · 透明 · 靠谱<br>把一门二手车生意，做成可复制的区域品牌。</p>
+      <div class="meta-row" style="margin-top:32.4px" data-anim>
+        <span>广州找靓车汽车销售服务有限公司</span><span>·</span><span>电话 134 3023 3648</span>
+      </div>
+    </div>
+    <div data-anim style="display:flex;flex-direction:column;gap:12.96px;align-items:center">
+      <div class="qr-card"><img src="images/wechat-qr.png" alt="蛙靓车微信二维码"></div>
+      <div class="meta">WECHAT · QR CODE</div>
+      <img class="cover-logo" src="images/waliangche-logo.png" alt="蛙靓车汽车城 Logo">
+    </div>
+  </div>
+  <div class="foot">
+    <div class="title">成立于 2019 年 · 广州增城 · 1800㎡ 展厅</div>
+    <div>FIELD NOTE · 01 / 12</div>
+  </div>
+</section>
+
+<!-- 02 · 市场背景 -->
+<section class="slide light" data-theme="light">
+  <div class="chrome">
+    <div>市场观察 · The Market</div>
+    <div>ACT I · 02 / 12</div>
+  </div>
+  <div class="frame" style="padding-top:34.56px">
+    <div class="kicker" data-anim>2025-2026 · 新能源二手车进入高速增长期</div>
+    <div class="grid-2-7-5" style="gap:96px;align-items:end">
+      <div data-anim>
+        <div class="meta">Official 2025 Data · China Automobile Dealers Association</div>
+        <h2 class="h-xl" style="font-size:102px;margin-top:6px">160<span style="font-size:42px;margin-left:.24em">万台</span></h2>
+        <p class="lead" style="font-size:32px;margin-top:10px">2025 年新能源二手车交易量首次突破 <span class="hi">150 万</span>大关，<br>2025.03 以来的月度累计趋势持续抬升。</p>
+        <div class="cumulative-curve">
+          <div class="curve-head">
+            <div class="meta">Monthly Cumulative Curve · Unit: 10K Vehicles</div>
+            <div class="meta">2025.03-2026.06E</div>
+          </div>
+          <svg class="curve-svg" viewBox="0 0 1000 230" role="img" aria-label="2025年3月至2026年6月新能源二手车月度累计交易趋势">
+            <line class="curve-grid" x1="40" y1="32" x2="960" y2="32"></line>
+            <line class="curve-grid" x1="40" y1="88" x2="960" y2="88"></line>
+            <line class="curve-grid" x1="40" y1="144" x2="960" y2="144"></line>
+            <path class="curve-area" d="M72 178 L130 168 L188 158 L246 147 L304 137 L362 126 L420 114 L478 102 L536 90 L594 77 L652 64 L710 55 L768 43 L826 32 L884 22 L942 12 L942 198 L72 198 Z"></path>
+            <polyline class="curve-line" points="72,178 130,168 188,158 246,147 304,137 362,126 420,114 478,102 536,90 594,77 652,64 710,55 768,43 826,32 884,22 942,12"></polyline>
+            <circle class="curve-dot" cx="72" cy="178" r="6"></circle>
+            <circle class="curve-dot" cx="246" cy="147" r="6"></circle>
+            <circle class="curve-dot" cx="420" cy="114" r="6"></circle>
+            <circle class="curve-dot" cx="594" cy="77" r="6"></circle>
+            <circle class="curve-dot" cx="768" cy="43" r="6"></circle>
+            <circle class="curve-dot" cx="942" cy="12" r="6"></circle>
+            <text class="curve-value" x="72" y="160" text-anchor="middle">11.7</text>
+            <text class="curve-value" x="246" y="129" text-anchor="middle">50</text>
+            <text class="curve-value" x="420" y="96" text-anchor="middle">93</text>
+            <text class="curve-value" x="594" y="59" text-anchor="middle">139</text>
+            <text class="curve-value" x="768" y="25" text-anchor="middle">180</text>
+            <text class="curve-value" x="906" y="22" text-anchor="middle">220+</text>
+            <text class="curve-month" x="72" y="222" text-anchor="middle">25.03</text>
+            <text class="curve-month" x="246" y="222" text-anchor="middle">25.06</text>
+            <text class="curve-month" x="420" y="222" text-anchor="middle">25.09</text>
+            <text class="curve-month" x="594" y="222" text-anchor="middle">25.12</text>
+            <text class="curve-month" x="768" y="222" text-anchor="middle">26.03</text>
+            <text class="curve-month" x="942" y="222" text-anchor="end">26.06E</text>
+          </svg>
+        </div>
+        <div class="scenario-band" style="margin-top:12px">
+          <strong>200+ <span style="font-size:24px">万台</span></strong>
+          <span>2026 全年情景判断 · 按 2025 基数、Q1 增速与置换周期综合判断</span>
+        </div>
+        <div class="meta" style="margin-top:11px">万亿级二手车大盘 · 新能源置换红利正在释放</div>
+      </div>
+      <div data-anim>
+        <div class="meta" style="margin-bottom:15px">Annual Scale · Unit: 10K Vehicles</div>
+        <div class="market-chart">
+          <div class="market-bar">
+            <div class="value">112<span class="unit">万</span></div>
+            <div class="col" data-bar-anim="y" style="height:50%;transform-origin:center bottom"></div>
+            <div class="month">2023</div>
+          </div>
+          <div class="market-bar">
+            <div class="value">134<span class="unit">万</span></div>
+            <div class="col" data-bar-anim="y" style="height:62%;transform-origin:center bottom"></div>
+            <div class="month">2024</div>
+          </div>
+          <div class="market-bar">
+            <div class="value">160<span class="unit">万</span></div>
+            <div class="col" data-bar-anim="y" style="height:72%;transform-origin:center bottom"></div>
+            <div class="month">2025</div>
+          </div>
+          <div class="market-bar">
+            <div class="value">200+<span class="unit">万</span></div>
+            <div class="col forecast" data-bar-anim="y" style="height:96%;transform-origin:center bottom"></div>
+            <div class="month">2026E</div>
+          </div>
+        </div>
+        <div class="trend-cards">
+          <div class="trend-card"><div class="n">40.46<span class="unit">万</span></div><div class="l">2026 Q1 交易量<br>同比 +32%</div></div>
+          <div class="trend-card"><div class="n">53-58<span class="unit">万</span></div><div class="l">2026 年 1-4 月测算<br>按新能源渗透率</div></div>
+          <div class="trend-card"><div class="n">7.9%</div><div class="l">占全国二手车交易量<br>160万 / 2010.8万</div></div>
+        </div>
+        <div class="meta" style="margin-top:13px"> </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="title">来源 · 中国汽车流通协会 / 人民网 / 上海金属网 · 说明：2026E 与 1-4 月新能源规模为情景测算值</div>
+    <div>NEV USED-CAR UPSIDE</div>
+  </div>
+</section>
+
+<!-- 03 · 核心经营数据 -->
+<section class="slide light" data-theme="light">
+  <div class="chrome">
+    <div>经营结果 · Verified Operations</div>
+    <div>ACT II · 03 / 12</div>
+  </div>
+  <div class="frame" style="padding-top:43.2px">
+    <div class="kicker" data-anim>数字先说话。</div>
+    <h2 class="h-xl" style="font-size:88.32px" data-anim>模型已经跑通。</h2>
+    <div class="grid-6" style="margin-top:21.6px;gap:28.08px 76.8px">
+      <div class="stat-card" data-anim><div class="stat-label">Revenue</div><div class="stat-nb">3834.2<span class="stat-unit">万</span></div><div class="stat-note">最近 12 个月销售额 · 2025.06-2026.05</div></div>
+      <div class="stat-card" data-anim><div class="stat-label">Annual Sales</div><div class="stat-nb">420<span class="stat-unit">台</span></div><div class="stat-note">近一年成交量420台 ·平均月成交 35 台 · 旺季 40+</div></div>
+      <div class="stat-card" data-anim><div class="stat-label">Gross Profit</div><div class="stat-nb">218.49<span class="stat-unit">万</span></div><div class="stat-note">最近 12 个月毛利润 · 台账综合毛利率 5.7%</div></div>
+      <div class="stat-card" data-anim><div class="stat-label">Annual Leads</div><div class="stat-nb">1900<span class="stat-unit">条</span></div><div class="stat-note">既有年度汇总 · 来自 10 种以上渠道</div></div>
+      <div class="stat-card" data-anim><div class="stat-label">Repurchase</div><div class="stat-nb">18<span class="stat-unit">%</span></div><div class="stat-note">客户复购率 · 近一年服务客户 1500 人</div></div>
+      <div class="stat-card" data-anim><div class="stat-label">Inventory Control</div><div class="stat-nb">24<span class="stat-unit">台</span></div><div class="stat-note">年均收购444台 ·库存仅增加24台</div></div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="title">数据 · 最近 12 个月经营台账 · 综合毛利率 5.7% · 明细台账可供尽调核验</div>
+    <div>BUSINESS RESULT</div>
+  </div>
+</section>
+
+<!-- 04 · 自媒体获客资产 -->
+<section class="slide dark" data-theme="dark" data-animate="directional">
+  <div class="chrome">
+    <div>获客资产 · Media Acquisition</div>
+    <div>ACT II · 04 / 12</div>
+  </div>
+  <div class="frame" style="padding-top:28.08px">
+    <div class="kicker" data-anim>不是等待自然客流，而是持续经营流量入口。</div>
+    <h2 class="h-xl" style="font-size:76.8px" data-anim>自媒体获客，<br>正在沉淀为流量资产。</h2>
+    <div class="proof-layout" style="margin-top:21.6px">
+      <div class="proof-stack" data-anim="left">
+        <div class="proof-kpis">
+          <div class="proof-kpi"><div class="n">19.2<span style="font-size:.45em">万</span></div><div class="l">抖音官方号粉丝<br>后台截图可核验</div></div>
+          <div class="proof-kpi"><div class="n">40.2<span style="font-size:.45em">万</span></div><div class="l">抖音官方号获赞<br>形成区域内容入口</div></div>
+          <div class="proof-kpi"><div class="n">47</div><div class="l">单次投放样本转化数<br>2.51 万展示 · 825 点击</div></div>
+        </div>
+        <div>
+          <div class="kicker" style="margin:10.8px 0 7.56px">全域矩阵 · Public Traffic Matrix</div>
+          <div class="matrix-list">
+            <div class="matrix-item"><div class="t">抖音 / 视频号 / 快手</div><div class="d">短视频 · 直播<br>流量主阵地</div></div>
+            <div class="matrix-item"><div class="t">小红书</div><div class="d">生活方式<br>精准客群</div></div>
+            <div class="matrix-item"><div class="t">懂车帝 / 汽车之家</div><div class="d">垂直内容<br>专业背书</div></div>
+            <div class="matrix-item"><div class="t">易车 / 人人车 / 金鱼塘</div><div class="d">交易平台<br>承接意向</div></div>
+            <div class="matrix-item"><div class="t">公众号 / 企业微信</div><div class="d">私域运营<br>长期触达</div></div>
+            <div class="matrix-item"><div class="t">本地内容 IP</div><div class="d">老豪说车<br>区域信任</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="kicker" style="margin:10.8px 0 7.56px">新媒体运营部 · 5 人扁平化协作</div>
+          <div class="org-strip">
+            <div class="org-node">CEO 直接挂帅<small>Decision</small></div><div class="org-arrow">→</div>
+            <div class="org-node">内容组 · 2 人<small>Content</small></div><div class="org-arrow">→</div>
+            <div class="org-node">运营组 · 2 人<small>Operation</small></div><div class="org-arrow">→</div>
+            <div class="org-node">技术支持 · 1 人<small>Support</small></div>
+          </div>
+          <div class="meta" style="margin-top:7.56px">跨部门协作 · 销售承接线索 · 售后反馈体验 · 内容团队持续复盘</div>
+        </div>
+      </div>
+      <div class="evidence-pair" data-anim="right">
+        <figure class="evidence-card fit-natural">
+          <img src="images/04a-douyin-official.png" alt="蛙靓车汽车城官方抖音号后台截图">
+          <figcaption class="cap"><strong>抖音官方号</strong>19.2 万粉丝 · 40.2 万获赞</figcaption>
+        </figure>
+        <figure class="evidence-card fit-natural">
+          <img src="images/04a-ad-campaign.png" alt="直播加热投放项目后台截图">
+          <figcaption class="cap"><strong>投放样本</strong>3.29% 点击率 · 47 转化</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="title">核心价值 · 流量入口可持续经营 · 团队具备内容与投放执行能力</div>
+    <div>MEDIA ASSET</div>
+  </div>
+</section>
+
+<!-- 05 · 线索到交易闭环 -->
+<section class="slide light" data-theme="light" data-animate="pipeline">
+  <div class="chrome">
+    <div>交易闭环 · Conversion Loop</div>
+    <div>ACT II · 05 / 12</div>
+  </div>
+  <div class="frame" style="padding-top:28.08px">
+    <div class="kicker">从公域流量，到可追踪的客户资产。</div>
+    <h2 class="h-xl" style="font-size:71.04px">线索不是一张表，<br>是一条持续优化的闭环。</h2>
+    <div class="flow-strip">
+      <div class="flow-step" data-anim="step"><span class="n">01</span><span class="t">线上引流</span><span class="d">内容 · 直播 · 平台</span></div>
+      <div class="flow-arrow" data-anim="arrow">→</div>
+      <div class="flow-step" data-anim="step"><span class="n">02</span><span class="t">线索管理</span><span class="d">来源标签 · 意向分类</span></div>
+      <div class="flow-arrow" data-anim="arrow">→</div>
+      <div class="flow-step" data-anim="step"><span class="n">03</span><span class="t">到店跟进</span><span class="d">分配 · 电话 · 到店</span></div>
+      <div class="flow-arrow" data-anim="arrow">→</div>
+      <div class="flow-step" data-anim="step"><span class="n">04</span><span class="t">成交交付</span><span class="d">零售 · 批发 · 售后</span></div>
+      <div class="flow-arrow" data-anim="arrow">→</div>
+      <div class="flow-step" data-anim="step"><span class="n">05</span><span class="t">私域沉淀</span><span class="d">复购 · 转介绍 · 复盘</span></div>
+    </div>
+    <div class="flow-bottom">
+      <div data-anim="step">
+        <div class="kicker" style="margin-bottom:8.64px">收购来源分布 · 420 台</div>
+        <div class="channel-list">
+          <div class="channel-row"><div class="name">易车</div><div class="track"><div class="fillbar" data-bar-anim="x" style="width:100%"></div></div><div class="pct">120 · 28.6%</div></div>
+          <div class="channel-row"><div class="name">人人车</div><div class="track"><div class="fillbar" data-bar-anim="x" style="width:66.4%"></div></div><div class="pct">80 · 19.0%</div></div>
+          <div class="channel-row"><div class="name">线下</div><div class="track"><div class="fillbar" data-bar-anim="x" style="width:58.4%"></div></div><div class="pct">70 · 16.7%</div></div>
+          <div class="channel-row"><div class="name">其他</div><div class="track"><div class="fillbar" data-bar-anim="x" style="width:41.6%"></div></div><div class="pct">50 · 11.9%</div></div>
+          <div class="channel-row"><div class="name">小喇叭</div><div class="track"><div class="fillbar" data-bar-anim="x" style="width:33.2%"></div></div><div class="pct">40 · 9.5%</div></div>
+          <div class="channel-row"><div class="name">抖音 / 小红书</div><div class="track"><div class="fillbar" data-bar-anim="x" style="width:29%"></div></div><div class="pct">35 · 8.3%</div></div>
+          <div class="channel-row"><div class="name">金鱼塘</div><div class="track"><div class="fillbar" data-bar-anim="x" style="width:21%"></div></div><div class="pct">25 · 6.0%</div></div>
+        </div>
+        <div class="meta" style="margin-top:8.64px">来源不是单点依赖 · 可逐项评估投入与成交贡献</div>
+      </div>
+      <div class="loop-side" data-anim="step">
+        <div class="loop-kpis">
+          <div class="loop-kpi"><div class="n">1900<span style="font-size:.42em">条</span></div><div class="l">年线索总量<br>多平台入口汇总</div></div>
+          <div class="loop-kpi"><div class="n">420<span style="font-size:.42em">台</span></div><div class="l">近一年成交<br>线索到交易可追踪</div></div>
+          <div class="loop-kpi"><div class="n">800+<span style="font-size:.42em">人</span></div><div class="l">私域沉淀<br>客户积累</div></div>
+          <div class="loop-kpi"><div class="n">18%</div><div class="l">客户复购率</div></div>
+        </div>
+        <div class="loop-evidence">
+          <figure class="evidence-card"><img src="images/04b-yiche-leads.png" alt="易车线索包后台截图"><figcaption class="cap"><strong>线索入口</strong>易车后台 · 1403 条可见记录</figcaption></figure>
+          <figure class="evidence-card"><img src="images/04b-customer-followup.png" alt="客户跟进表后台截图"><figcaption class="cap"><strong>持续跟进</strong>来源 · 意向 · 反馈日期可追踪</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="title">核心价值 · 每一条线索都有来源 · 每一次成交都可以复盘</div>
+    <div>TRACKABLE GROWTH</div>
+  </div>
+</section>
+
+<!-- 06 · 单车经济与资金效率 -->
+<section class="slide light" data-theme="light" data-animate="directional">
+  <div class="chrome">
+    <div>资金效率 · Unit Economics</div>
+    <div>ACT II · 06 / 12</div>
+  </div>
+  <div class="frame" style="padding-top:34px">
+    <div class="kicker" data-anim>投资人看增长，也看每一块钱如何周转。</div>
+    <h2 class="h-xl" style="font-size:78px;line-height:1.04" data-anim>单车经济模型，<br>决定资金放大效率。</h2>
+    <div class="econ-layout">
+      <div data-anim="left">
+        <div class="econ-hero">
+          <div class="nb"><span class="unit">每台利润</span>5202<span class="unit">元</span></div>
+          <div class="txt">按近一年台账测算：销售额 3834.2 万元、成交 420 台、毛利润 218.49 万元，单车平均毛利约 5202 元，综合毛利率约 5.7%。</div>
+        </div>
+        <div class="econ-strip">
+          <div class="econ-kpi"><div class="n">9.13<span class="unit">万</span></div><div class="l">单车平均销售额<br>3834.2 万 / 420 台</div></div>
+          <div class="econ-kpi"><div class="n">5.7%</div><div class="l">综合毛利率<br>近一年台账</div></div>
+          <div class="econ-kpi"><div class="n">24<span class="unit">台</span></div><div class="l">库存净增加<br>收购 444 台 / 售出 420 台</div></div>
+        </div>
+      </div>
+      <div data-anim="right">
+        <div class="econ-board">
+          <div class="econ-row"><div class="k">Revenue</div><div class="v">近一年销售额 3834.2 万</div><div class="d">已形成稳定交易规模</div></div>
+          <div class="econ-row"><div class="k">Gross Profit</div><div class="v">近一年毛利润 218.49 万</div><div class="d">单车利润可复盘</div></div>
+          <div class="econ-row"><div class="k">Turnover</div><div class="v">收购 444 台，售出 420 台</div><div class="d">库存增长受控</div></div>
+          <div class="econ-row"><div class="k">Capital Use</div><div class="v">车源资金池随周转重复使用</div><div class="d">不是一次性消耗</div></div>
+        </div>
+        <div class="econ-chain">
+          <div class="econ-chain-title">资金进入后的放大逻辑</div>
+          <div class="econ-chain-flow">
+            <div class="econ-step"><strong>更快收车</strong>提升优质车源响应速度</div>
+            <div class="econ-step"><strong>更稳库存</strong>热门车型储备与采购议价</div>
+            <div class="econ-step"><strong>更高转化</strong>销售承接线索与到店成交</div>
+            <div class="econ-step"><strong>沉淀模型</strong>复盘单车利润与周转效率</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="title">台账 · 近一年经营数据 · 不构成收益承诺</div>
+    <div>UNIT ECONOMICS</div>
+  </div>
+</section>
+
+<!-- 07 · 发展路线 -->
+<section class="slide dark" data-theme="dark">
+  <div class="chrome">
+    <div>发展路线 · Roadmap</div>
+    <div>ACT III · 07 / 12</div>
+  </div>
+  <div class="frame" style="padding-top:34.56px">
+    <div class="kicker" style="margin-bottom:15.12px" data-anim>四个阶段，逐步放大。</div>
+    <h2 class="h-xl" style="font-size:78.72px" data-anim>先提效，再扩店，<br>最后做连锁。</h2>
+    <div class="grid-2-7-5" style="margin-top:23.76px;gap:76.8px;align-items:start">
+      <div data-anim>
+        <div class="rowline roadmap-row" style="grid-template-columns:1fr 2.4fr;padding:11px 0">
+          <div class="k">1 - 3 个月</div><div class="v">月均成交目标 45 台 · 零售占比 65%<br>布局海外增长平台，打通跨境车辆流通与交付链路</div>
+        </div>
+        <div class="rowline roadmap-row" style="grid-template-columns:1fr 2.4fr;padding:11px 0">
+          <div class="k">3 - 6 个月</div><div class="v">筹备第二展厅，优先覆盖黄埔 / 东莞<br>搭建 CRM 管理体系，提升客户复购与跟进效率</div>
+        </div>
+        <div class="rowline roadmap-row" style="grid-template-columns:1fr 2.4fr;padding:11px 0">
+          <div class="k">6 - 12 个月</div><div class="v">沉淀可复制的门店运营流程<br>形成获客、收购、销售、售后标准 SOP</div>
+        </div>
+        <div class="rowline roadmap-row" style="grid-template-columns:1fr 2.4fr;padding:11px 0">
+          <div class="k">1 - 2   年</div><div class="v">品牌开放加盟，全面扶持连锁商家<br>输出品牌、车源、培训、系统与运营经验</div>
+        </div>
+        <div class="callout" style="margin-top:12px;padding:17px 30.72px">
+          中期管理目标：第二展厅落地、CRM 体系上线、运营 SOP 标准化。<br>
+          <span style="font-family:var(--sans-zh);font-size:max(11px,14.976px);opacity:.68">为经营规划目标，不构成收益承诺。</span>
+        </div>
+      </div>
+      <figure class="tile" data-anim>
+        <div class="frame-img fit-contain r-16x9"><img src="images/07-shenzhong-future-corridor.png" alt="深中通道城市群未来发展愿景场景"></div>
+        <figcaption class="frame-cap"><span class="pf">深中通道 · Future Corridor</span><span class="nb">GBA Vision</span></figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="title">以上规划基于现有运营能力和实际市场情况</div>
+    <div>ROADMAP · 2 YEARS</div>
+  </div>
+</section>
+
+<!-- 08 · 章节幕封 -->
+<section class="slide hero light" data-theme="light">
+  <div class="chrome">
+    <div>下一阶段 · The Next Chapter</div>
+    <div>ACT III · 08 / 12</div>
+  </div>
+  <div class="frame" style="display:grid;gap:54px;align-content:center;min-height:864px">
+    <div class="kicker" data-anim>从一个品牌，到一套模型。</div>
+    <h1 class="h-hero" style="font-size:145.92px" data-anim>复制增长。</h1>
+    <p class="lead" style="max-width:1113.6px" data-anim>不是盲目扩张。先提高成交效率，再复制到第二展厅，最后形成华南区域连锁。</p>
+  </div>
+  <div class="foot">
+    <div class="title">稳健扩张 · 不夸大预测</div>
+    <div>GROWTH PLAN</div>
+  </div>
+</section>
+
+<!-- 09 · 融资与合作 -->
+<section class="slide light p7" data-theme="light" data-animate="directional">
+  <div class="chrome">
+    <div>合作方案 · Partnership</div>
+    <div>ACT IV · 09 / 12</div>
+  </div>
+  <div class="frame" style="padding-top:25.92px">
+    <div class="fund-hero">
+      <div data-anim="left">
+        <div class="kicker" style="margin-bottom:11px">以资金撬动已验证能力，沉淀可复制的经营资产。</div>
+        <h2 class="h-xl" style="font-size:70px;line-height:1.02" data-anim>500 万资金，<br>换成四类经营资产。</h2>
+      </div>
+      <div class="fund-ask-card" data-anim="right">
+        <div class="nb">500<span class="unit">万</span></div>
+        <div class="sub">拟出让股份 · 10%<br>资金用途以经营建设为主</div>
+      </div>
+    </div>
+
+    <div class="fund-strip" data-anim>
+      <div class="fund-strip-track" aria-label="500 万融资资金分配比例">
+        <div class="fund-seg" data-bar-anim="x" style="width:40%"></div>
+        <div class="fund-seg" data-bar-anim="x" style="width:20%"></div>
+        <div class="fund-seg" data-bar-anim="x" style="width:20%"></div>
+        <div class="fund-seg" data-bar-anim="x" style="width:20%"></div>
+      </div>
+      <div class="fund-strip-labels">
+        <div><strong>200 万 · 40%</strong>车源收购资金池</div>
+        <div><strong>100 万 · 20%</strong>海外平台</div>
+        <div><strong>100 万 · 20%</strong>渠道系统</div>
+        <div><strong>100 万 · 20%</strong>团队扩张</div>
+      </div>
+    </div>
+
+    <div class="fund-board">
+      <div class="fund-stack" data-anim="left">
+        <div class="fund-lane">
+          <div class="fund-head"><div class="fund-amt">200<span class="unit">万</span></div><div class="fund-pct">40%</div></div>
+          <div class="fund-name">车源收购资金池</div>
+          <div class="fund-desc">用于优质车源预付款、热门车型储备与采购议价，服务库存周转效率。</div>
+          <div class="fund-bar"><span data-bar-anim="x" style="width:100%"></span></div>
+        </div>
+        <div class="fund-lane">
+          <div class="fund-head"><div class="fund-amt">100<span class="unit">万</span></div><div class="fund-pct">20%</div></div>
+          <div class="fund-name">海外业务与平台拓展</div>
+          <div class="fund-desc">建设海外内容触达、平台账号矩阵与合作渠道，试跑出口与交付链路。</div>
+          <div class="fund-bar"><span data-bar-anim="x" style="width:50%"></span></div>
+        </div>
+        <div class="fund-lane">
+          <div class="fund-head"><div class="fund-amt">100<span class="unit">万</span></div><div class="fund-pct">20%</div></div>
+          <div class="fund-name">渠道投放与数字化系统</div>
+          <div class="fund-desc">强化直播投流、线索归因、CRM 跟进和客户分层，让转化可复盘。</div>
+          <div class="fund-bar"><span data-bar-anim="x" style="width:50%"></span></div>
+        </div>
+        <div class="fund-lane">
+          <div class="fund-head"><div class="fund-amt">100<span class="unit">万</span></div><div class="fund-pct">20%</div></div>
+          <div class="fund-name">团队扩张与展厅升级</div>
+          <div class="fund-desc">补强收购、销售、新媒体、售后岗位，并沉淀复制所需 SOP。</div>
+          <div class="fund-bar"><span data-bar-anim="x" style="width:50%"></span></div>
+        </div>
+      </div>
+
+      <div class="fund-panel" data-anim="right">
+        <div class="kicker" style="margin-bottom:10px">资金分配柱状图 · Allocation</div>
+        <div class="fund-bars">
+          <div class="fund-col"><div class="nb">200<span class="unit">万</span></div><div class="bar" data-bar-anim="y" style="height:250px"></div><div class="label">车源<br>资金池</div></div>
+          <div class="fund-col"><div class="nb">100<span class="unit">万</span></div><div class="bar" data-bar-anim="y" style="height:125px"></div><div class="label">海外<br>平台</div></div>
+          <div class="fund-col"><div class="nb">100<span class="unit">万</span></div><div class="bar" data-bar-anim="y" style="height:125px"></div><div class="label">渠道<br>系统</div></div>
+          <div class="fund-col"><div class="nb">100<span class="unit">万</span></div><div class="bar" data-bar-anim="y" style="height:125px"></div><div class="label">团队<br>展厅</div></div>
+        </div>
+      </div>
+
+      <div class="fund-panel outline" data-anim="right">
+        <div class="kicker" style="margin-bottom:10px">投入落点 · Operating Assets</div>
+        <div class="fund-photo">
+          <figure class="tile">
+            <div class="frame-img fit-contain"><img src="images/07-partnership-conversation.png" alt="展厅内合作伙伴沟通纪实场景"></div>
+            <figcaption class="frame-cap"><span class="pf">首期目标 · Phase I</span><span class="nb">100-200 万</span></figcaption>
+          </figure>
+          <div class="fund-bullets">
+            <div class="fund-bullet"><strong>短期计划 · 100-200 万</strong>优先补强车源资金池，提高优质车源响应速度，把现有收购与销售模型做大一圈。</div>
+            <div class="fund-bullet"><strong>中期计划 · 系统化</strong>建设 CRM、线索归因和客户分层，让投放、到店、成交、复购形成可复盘数据链。</div>
+            <div class="fund-bullet"><strong>长期计划 · 可复制</strong>沉淀门店运营 SOP、岗位培训和展厅标准，为第二展厅、海外业务与加盟复制准备底座。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="title">车源 · 海外 · 系统 · 团队 · 展厅</div>
+    <div>FUNDING ASK</div>
+  </div>
+</section>
+
+<!-- 10 · 公司底座 -->
+<section class="slide dark" data-theme="dark">
+  <div class="chrome">
+    <div>公司档案 · Company Profile</div>
+    <div>ACT IV · 10 / 12</div>
+  </div>
+  <div class="frame" style="padding-top:54px">
+    <div class="kicker" data-anim>不是一张蓝图，是一套已经运转的底座。</div>
+    <h2 class="h-xl" style="font-size:84.48px" data-anim>从广州增城，<br>做出一间稳定的店。</h2>
+    <div class="grid-2-6-6" style="margin-top:45.36px;gap:96px">
+      <div class="grid-4" style="gap:28.08px 46.08px" data-anim>
+        <div class="stat-card"><div class="stat-label">Founded</div><div class="stat-nb" style="font-size:80.64px">2019.04</div><div class="stat-note">注册资本 100 万元</div></div>
+        <div class="stat-card"><div class="stat-label">Showroom</div><div class="stat-nb" style="font-size:88.32px">1800<span class="stat-unit">㎡</span></div><div class="stat-note">广州增城 · 蛙靓车汽车城</div></div>
+        <div class="stat-card"><div class="stat-label">Team</div><div class="stat-nb" style="font-size:88.32px">20-99</div><div class="stat-note">收购 · 销售 · 新媒体 · 售后</div></div>
+        <div class="stat-card"><div class="stat-label">Position</div><div class="stat-nb" style="font-family:var(--serif-zh);font-size:61.44px">互联网+</div><div class="stat-note">二手车零售新锐品牌</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:19.44px" data-anim>
+        <div class="kicker" style="margin-bottom:0">股权构成 · Shareholding Structure</div>
+        <div class="shareholding">
+          <div>
+            <div class="shareholding-head">
+              <div class="shareholding-name">吴俊豪<span class="shareholding-role">Founder · Managing Shareholder</span></div>
+              <div class="shareholding-pct">85%</div>
+            </div>
+            <div class="share-track"><div class="share-fill primary" data-bar-anim="x"></div></div>
+          </div>
+          <div>
+            <div class="shareholding-head">
+              <div class="shareholding-name">钟浩柱<span class="shareholding-role">Shareholder</span></div>
+              <div class="shareholding-pct">15%</div>
+            </div>
+            <div class="share-track"><div class="share-fill secondary" data-bar-anim="x"></div></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:23.04px;align-items:stretch">
+          <figure class="tile">
+            <div class="frame-img" style="height:118.8px"><img src="images/03-showroom-editorial.png" alt="蛙靓车展厅纪实场景" style="object-position:center center"></div>
+            <figcaption class="frame-cap"><span class="pf">展厅现场</span><span class="nb">1800㎡</span></figcaption>
+          </figure>
+          <div class="callout" style="padding:12.96px 19.2px">
+          股权结构清晰。<span class="hi"></span><br>
+          管理层深入一线，决策链条短。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="title">一套清晰、稳定、可复制的经营底座</div>
+    <div>COMPANY FOUNDATION</div>
+  </div>
+</section>
+
+<!-- 11 · 被投 CEO -->
+<section class="slide light" data-theme="light" data-animate="directional">
+  <div class="chrome">
+    <div>CEO Profile</div>
+    <div>ACT IV · 11 / 12</div>
+  </div>
+  <div class="frame" style="padding-top:30.24px">
+    <div class="ceo-layout">
+      <figure class="ceo-media" data-anim="left">
+        <div class="frame-img ceo-portrait"><img src="images/10-ceo-portrait.jpg" alt="蛙靓车创始人吴俊豪职业形象照"></div>
+        <div class="ceo-side-card">
+          <div class="ceo-side-name">吴俊豪<br><span style="font-family:var(--serif-en);font-size:.68em;font-weight:600">Juno Wu</span></div>
+          <div class="ceo-side-role">Founder / CEO</div>
+          <div class="ceo-side-copy">蛙靓车创始人兼核心经营负责人，深度参与车源、销售、新媒体、售后与组织管理。</div>
+        </div>
+      </figure>
+      <div data-anim="right">
+        <div class="kicker" style="margin-bottom:13px">Founder Profile</div>
+        <div class="ceo-main">
+          <div class="ceo-copy">
+            <h2 class="ceo-title">吴俊豪<br>创始人兼 CEO。</h2>
+            <p class="ceo-sub">吴俊豪，蛙靓车汽车城创始人兼 CEO，拥有 15 年企业经营管理与连续创业经验。经历覆盖地产、金融、汽车、企业管理等领域，当前负责公司经营决策、车源体系、销售管理、新媒体获客、售后服务与团队组织建设，并参与关键业务数据复盘和经营节奏管理。</p>
+          </div>
+          <div class="ceo-proof-grid">
+            <div class="ceo-proof"><div class="n">15<span class="unit">年</span></div><div class="l">经营管理与连续创业经验</div></div>
+            <div class="ceo-proof"><div class="n">4<span class="unit">域</span></div><div class="l">地产、金融、汽车、企业管理复合经验</div></div>
+            <div class="ceo-proof"><div class="n">85%</div><div class="l">创始人持股，权责清晰</div></div>
+            <div class="ceo-proof"><div class="n">MBA</div><div class="l">暨南大学工商管理硕士进修中</div></div>
+          </div>
+        </div>
+        <div class="ceo-thesis">创始人团队已完成从线下门店经营到线上获客、车源收购、销售转化、售后服务的基本闭环搭建，并围绕车源质量、库存周转、现金流安全、客户复购与团队协同建立日常管理机制，为后续标准化管理和区域复制提供经营基础。</div>
+        <div class="ceo-track">
+          <div class="ceo-track-row"><div class="d"><strong>经营管理</strong>围绕收购量、销售量、毛利率、库存周转和现金流进行经营管理，具备从单车利润到整体资金效率的综合判断能力。</div></div>
+          <div class="ceo-track-row"><div class="d"><strong>车源与风控</strong>参与车况评估、价格判断、采购节奏和高风险车源筛选，降低二手车交易中常见的信息不对称与库存风险。</div></div>
+          <div class="ceo-track-row"><div class="d"><strong>组织协同</strong>公司下设收购、销售、新媒体、售后等职能，围绕线索分配、到店跟进、成交交付和售后反馈形成协同机制。</div></div>
+          <div class="ceo-track-row"><div class="d"><strong>渠道获客</strong>通过抖音、易车、人人车、懂车帝、小红书等平台沉淀线索来源，并逐步接入 CRM、私域客户管理和复购跟踪。</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="title">经营管理 · 风控能力 · 组织执行力</div>
+    <div>MANAGEMENT PROFILE</div>
+  </div>
+</section>
+
+<!-- 12 · 收束 -->
+<section class="slide hero dark closing-gl" data-theme="dark" data-animate="quote">
+  <canvas id="closing-canvas" class="closing-canvas"></canvas>
+  <div class="chrome">
+    <div>结语 · Closing Note</div>
+    <div>12 / 12</div>
+  </div>
+  <div class="frame" style="display:grid;gap:43.2px;align-content:center;min-height:864px">
+    <blockquote style="font-family:var(--serif-zh);font-weight:700;font-size:107.52px;line-height:1.22;letter-spacing:-.01em;max-width:1497.6px">
+      <span data-anim="line" style="display:block">“一起把一门生意，</span>
+      <span data-anim="line" style="display:block">做成一个品牌。”</span>
+    </blockquote>
+    <p class="lead" style="max-width:1113.6px;opacity:.72" data-anim>从品牌到区域连锁，蛙靓车正在稳健向前。</p>
+  </div>
+  <div class="thanks-watch" data-anim>感谢观看</div>
+  <div class="foot">
+    <div class="title">蛙靓车汽车城 · 广州增城</div>
+    <div></div>
+  </div>
+</section>
+
+</div>
+</div>
+</div>
+
+<div id="nav"></div>
+
+<script>
+// =============== 导航（翻页 / 圆点 / 键盘 / 滚轮 / 触屏） ===============
+const deck=document.getElementById('deck');
+const stage=document.getElementById('deck-stage');
+const slides=deck.querySelectorAll('.slide');
+const nav=document.getElementById('nav');
+let idx=0,total=slides.length,lock=false;
+
+// 固定舞台：所有页面以 1920x1080 排版，窗口用 cover 模式铺满。
+function fitStage(){
+  const scale=Math.max(innerWidth/1920,innerHeight/1080);
+  const x=(innerWidth-1920*scale)/2;
+  const y=(innerHeight-1080*scale)/2;
+  stage.style.transform=`translate(${x}px,${y}px) scale(${scale})`;
+}
+fitStage();
+addEventListener('resize',fitStage,{passive:true});
+addEventListener('orientationchange',()=>setTimeout(fitStage,120),{passive:true});
+
+// 关键：矫正 deck 宽度为 total * 1920px，否则翻页会错位
+deck.style.width=(total*1920)+'px';
+
+slides.forEach((s,i)=>{
+  const b=document.createElement('button');
+  b.className='dot';b.dataset.i=i;b.setAttribute('aria-label','Page '+(i+1));
+  b.onclick=()=>go(i);
+  nav.appendChild(b);
+});
+
+function go(n){
+  if(lock)return;
+  idx=Math.max(0,Math.min(total-1,n));
+  window.__currentSlideIndex = idx;
+  deck.style.transform=`translateX(${-idx*1920}px)`;
+  nav.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+  /* 主题切换：优先读 data-theme，其次从 class（light/dark）推断 */
+  const el=slides[idx];
+  const th=el.dataset.theme || (el.classList.contains('light')?'light':(el.classList.contains('dark')?'dark':'dark'));
+  document.body.classList.toggle('light-bg',th==='light');
+  /* 动效：翻页过渡中段触发当前页的入场动画（由 motion-boot 注册） */
+  if(window.__playSlide) setTimeout(()=>window.__playSlide(idx), 450);
+  lock=true;setTimeout(()=>lock=false,700);
+}
+
+/* =============== ESC 索引视图 =============== */
+let overviewOn=false;
+const ov=document.createElement('div');
+ov.id='overview';
+ov.style.cssText='position:fixed;inset:0;z-index:100;background:rgba(var(--ink-rgb),.92);backdrop-filter:blur(12px);display:none;overflow-y:auto;padding:4vh 4vw';
+document.body.appendChild(ov);
+
+function buildOverview(){
+  ov.innerHTML='';
+  const grid=document.createElement('div');
+  grid.style.cssText='display:grid;grid-template-columns:repeat(4,1fr);gap:2vh 1.6vw;max-width:90vw;margin:0 auto';
+  slides.forEach((s,i)=>{
+    const card=document.createElement('div');
+    card.style.cssText='cursor:pointer;border-radius:6px;overflow:hidden;border:2px solid '+(i===idx?'rgba(var(--paper-rgb),.8)':'rgba(var(--paper-rgb),.15)')+';transition:border-color .2s';
+    card.onmouseenter=()=>card.style.borderColor='rgba(var(--paper-rgb),.6)';
+    card.onmouseleave=()=>card.style.borderColor=i===idx?'rgba(var(--paper-rgb),.8)':'rgba(var(--paper-rgb),.15)';
+    const wrap=document.createElement('div');
+    wrap.style.cssText='width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;pointer-events:none;background:'+(s.classList.contains('light')?'var(--paper)':'var(--ink)');
+    const clone=s.cloneNode(true);
+    clone.style.cssText='width:1920px;height:1080px;transform:scale('+(1/4.5)+');transform-origin:top left;position:absolute;top:0;left:0;pointer-events:none';
+    wrap.appendChild(clone);
+    const label=document.createElement('div');
+    label.style.cssText='padding:6px 10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);opacity:.7';
+    label.textContent=(i+1)+' / '+total;
+    card.appendChild(wrap);
+    card.appendChild(label);
+    card.onclick=()=>{toggleOverview();go(i)};
+    grid.appendChild(card);
+  });
+  ov.appendChild(grid);
+}
+
+function toggleOverview(){
+  overviewOn=!overviewOn;
+  if(overviewOn){buildOverview();ov.style.display='block';}
+  else{ov.style.display='none';}
+}
+
+addEventListener('keydown',e=>{
+  if(e.key==='Escape'){e.preventDefault();toggleOverview();return;}
+  if(e.key && e.key.toLowerCase()==='b' && !e.metaKey && !e.ctrlKey && !e.altKey){
+    e.preventDefault();
+    window.__setLowPowerMode(!window.__lowPowerMode);
+    return;
+  }
+  if(overviewOn)return;
+  if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='ArrowDown'){
+    if(window.__pipeAdvance && window.__pipeAdvance()) return;
+    go(idx+1);
+    return;
+  }
+  if(e.key==='ArrowLeft'||e.key==='PageUp'||e.key==='ArrowUp'){
+    if(window.__pipeBack && window.__pipeBack()) return;
+    go(idx-1);
+  }
+  if(e.key==='Home')go(0);
+  if(e.key==='End')go(total-1);
+});
+
+addEventListener('click',e=>{
+  if(e.button !== 0) return;
+  if(document.body.classList.contains('auth-locked') || document.body.classList.contains('auth-welcoming')) return;
+  const interactive = e.target.closest('button,input,textarea,select,a,label,#nav,#overview,#auth-gate,#welcome-gate');
+  if(interactive || overviewOn) return;
+  const goNext = e.clientX >= innerWidth / 2;
+  if(goNext){
+    if(window.__pipeAdvance && window.__pipeAdvance()) return;
+    go(idx+1);
+  }else{
+    if(window.__pipeBack && window.__pipeBack()) return;
+    go(idx-1);
+  }
+});
+
+let wheelTO=null,wheelAcc=0;
+addEventListener('wheel',e=>{
+  wheelAcc+=e.deltaY+e.deltaX;
+  if(Math.abs(wheelAcc)>50){
+    if(wheelAcc>0 && window.__pipeAdvance && window.__pipeAdvance()){
+      wheelAcc=0;
+    }else if(wheelAcc < 0 && window.__pipeBack && window.__pipeBack()){
+      wheelAcc=0;
+    }else{
+      go(idx+(wheelAcc>0?1:-1));wheelAcc=0;
+    }
+  }
+  clearTimeout(wheelTO);wheelTO=setTimeout(()=>wheelAcc=0,150);
+},{passive:true});
+
+let tx=0,ty=0;
+addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+addEventListener('touchend',e=>{
+  const dx=(e.changedTouches[0].clientX-tx);
+  const dy=(e.changedTouches[0].clientY-ty);
+  if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){
+    if(dx<0 && window.__pipeAdvance && window.__pipeAdvance()) return;
+    if(dx>0 && window.__pipeBack && window.__pipeBack()) return;
+    go(idx+(dx<0?1:-1));
+  }
+},{passive:true});
+
+go(0);
+
+function startClosingGL(){
+  const canvas = document.getElementById('closing-canvas');
+  const gl = canvas && canvas.getContext('webgl', {alpha:false, antialias:true});
+  if(!gl) return;
+  const vs = `attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}`;
+  const fs = `precision highp float;
+  uniform vec2 r;uniform float t;
+  float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}
+  float n(vec2 p){vec2 i=floor(p),f=fract(p);float a=h(i),b=h(i+vec2(1,0)),c=h(i+vec2(0,1)),d=h(i+1.0);vec2 u=f*f*(3.0-2.0*f);return mix(a,b,u.x)+(c-a)*u.y*(1.0-u.x)+(d-b)*u.x*u.y;}
+  float f(vec2 p){float v=0.0,a=.5;mat2 m=mat2(.82,.58,-.58,.82);for(int i=0;i<5;i++){v+=a*n(p);p=m*p*2.04;a*=.52;}return v;}
+  void main(){vec2 uv=gl_FragCoord.xy/r.xy;vec2 p=uv;p.x*=r.x/r.y;vec2 c=uv-.5;float d=length(c);vec2 q=vec2(f(p*1.25+t*.055),f(p*1.35+vec2(4.2,1.7)-t*.035));float ink=f(p*2.7+q*1.45+t*.02);float ring=smoothstep(.58,.08,d)*.22;vec3 deep=vec3(.055,.094,.064),base=vec3(.101,.180,.121),moss=vec3(.18,.31,.21);vec3 col=mix(deep,base,.72+.18*ink);col=mix(col,moss,smoothstep(.55,.95,ink)*.28+ring);col+=vec3(n(gl_FragCoord.xy*.75+t*3.0)-.5)*.022;gl_FragColor=vec4(col,1.0);}`;
+  const sh=(type,src)=>{const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s};
+  const prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vs));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(prog);gl.useProgram(prog);
+  const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);
+  const loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  const lr=gl.getUniformLocation(prog,'r');const lt=gl.getUniformLocation(prog,'t');let start=performance.now();
+  const resize=()=>{const d=Math.min(devicePixelRatio||1,2);const rect=canvas.getBoundingClientRect();canvas.width=Math.max(1,Math.round(rect.width*d));canvas.height=Math.max(1,Math.round(rect.height*d));gl.viewport(0,0,canvas.width,canvas.height)};
+  const draw=()=>{gl.uniform2f(lr,canvas.width,canvas.height);gl.uniform1f(lt,(performance.now()-start)/1000);gl.drawArrays(gl.TRIANGLES,0,6);requestAnimationFrame(draw)};
+  resize();addEventListener('resize',resize,{passive:true});draw();
+}
+startClosingGL();
+</script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+
+<!-- ============ Motion One 动效引擎（本地优先,CDN 兜底） ============
+     加载策略:先 ./assets/motion.min.js(本地,离线可用),失败 fallback 到 jsDelivr CDN
+     加载完成后挂 window.__playSlide / window.__pipeAdvance,
+     导航脚本会在翻页中段调用 __playSlide(idx),键盘/滚轮/触屏会在翻页前调用 __pipeAdvance()
+     双双失败时会兜底把所有 [data-anim] 设为可见,不让动效破坏阅读
+-->
+<script type="module">
+let motion;
+try {
+  motion = await import('./assets/motion.min.js');
+} catch(e1) {
+  try {
+    motion = await import('https://cdn.jsdelivr.net/npm/motion@11.11.17/+esm');
+  } catch(e2) {
+    console.warn('[motion] local + CDN both failed, disabling animations', e1, e2);
+    document.querySelectorAll('[data-anim]').forEach(el=>{el.style.opacity='1';el.style.transform='none'});
+    document.querySelectorAll('[data-animate="pipeline"] [data-anim]').forEach(el=>el.style.opacity='1');
+  }
+}
+
+if(motion){
+  const { animate, stagger } = motion;
+  document.body.classList.add('motion-ready');
+  const EASE = [.22, 1, .36, 1];
+  const slides = [...document.querySelectorAll('.slide')];
+  let pipeStep = -1;
+  let lastIdx = -1;
+
+  function resetAnims(slide){
+    slide.querySelectorAll('[data-anim]').forEach(el=>{
+      el.style.opacity='';
+      el.style.transform='';
+    });
+    slide.querySelectorAll('[data-bar-anim]').forEach(el=>{
+      el.style.transform=el.dataset.barAnim==='y' ? 'scaleY(0)' : 'scaleX(0)';
+    });
+  }
+
+  function revealStatic(slide){
+    resetAnims(slide);
+    document.getAnimations?.().forEach(a=>a.cancel());
+    slide.querySelectorAll('[data-anim]').forEach(el=>{
+      el.style.opacity='1';
+      el.style.transform='none';
+    });
+    slide.querySelectorAll('[data-bar-anim]').forEach(el=>el.style.transform='none');
+  }
+
+  function animateDetails(slide){
+    const textTargets = [...slide.querySelectorAll('.stat-card, .rowline, .shareholding-head, .callout, .frame-cap, .proof-kpi, .matrix-item, .org-node, .flow-step, .channel-row, .loop-kpi, .evidence-card, .econ-kpi, .econ-row, .econ-step, .fund-lane, .fund-panel, .fund-bullet, .ceo-proof, .ceo-track-row')];
+    if(textTargets.length) animate(textTargets, {opacity:[0,1], y:[9,0]}, {duration:.55, delay:stagger(.07, {start:.42}), easing:EASE});
+
+    const barsX = [...slide.querySelectorAll('[data-bar-anim="x"]')];
+    const barsY = [...slide.querySelectorAll('[data-bar-anim="y"]')];
+    if(barsX.length) animate(barsX, {scaleX:[0,1]}, {duration:.9, delay:stagger(.16, {start:.52}), easing:EASE});
+    if(barsY.length) animate(barsY, {scaleY:[0,1]}, {duration:.9, delay:stagger(.16, {start:.52}), easing:EASE});
+  }
+
+  function playSlide(i){
+    const slide = slides[i];
+    if(!slide) return;
+    lastIdx = i;
+    const recipe = slide.dataset.animate || (slide.classList.contains('hero') ? 'hero' : 'cascade');
+
+    if(window.__lowPowerMode){
+      revealStatic(slide);
+      return;
+    }
+
+    if(recipe === 'pipeline'){
+      pipeStep = -1;
+      resetAnims(slide);
+      slide.querySelectorAll('[data-anim]').forEach(el=>{
+        el.style.opacity='0.15';
+        el.style.transform='none';
+      });
+      const barsX = [...slide.querySelectorAll('[data-bar-anim="x"]')];
+      if(barsX.length) animate(barsX, {scaleX:[0,1]}, {duration:.85, delay:stagger(.08, {start:.35}), easing:EASE});
+      return;
+    }
+
+    resetAnims(slide);
+    const all = [...slide.querySelectorAll('[data-anim]')];
+    animateDetails(slide);
+    if(!all.length) return;
+
+    if(recipe === 'directional'){
+      const lefts  = all.filter(el=>el.dataset.anim==='left');
+      const divs   = all.filter(el=>el.dataset.anim==='divider');
+      const rights = all.filter(el=>el.dataset.anim==='right');
+      const others = all.filter(el=>!['left','right','divider'].includes(el.dataset.anim));
+      if(others.length) animate(others, {opacity:[0,1], y:[12,0]}, {duration:.6, delay:stagger(.1, {start:.15}), easing:EASE});
+      if(lefts.length)  animate(lefts,  {opacity:[0,1], x:[-24,0]}, {duration:.8, delay:.35, easing:EASE});
+      if(divs.length)   animate(divs,   {opacity:[0,.25]},          {duration:.5, delay:.9});
+      if(rights.length) animate(rights, {opacity:[0,1], x:[24,0]},  {duration:.8, delay:1.0, easing:EASE});
+      return;
+    }
+
+    if(recipe === 'quote'){
+      const lines = all.filter(el=>el.dataset.anim==='line');
+      const others = all.filter(el=>el.dataset.anim!=='line');
+      if(others.length) animate(others, {opacity:[0,1], y:[8,0]},    {duration:.6, delay:stagger(.12, {start:.2}), easing:EASE});
+      if(lines.length)  animate(lines,  {opacity:[.35,1], y:[10,0]}, {duration:.8, delay:stagger(.55, {start:.5}), easing:EASE});
+      return;
+    }
+
+    if(recipe === 'hero'){
+      animate(all, {opacity:[0,1], y:[14,0]}, {duration:.9, delay:stagger(.16, {start:.2}), easing:EASE});
+      return;
+    }
+
+    // default: cascade
+    animate(all, {opacity:[0,1], y:[16,0]}, {duration:.75, delay:stagger(.1, {start:.15}), easing:EASE});
+  }
+
+  function pipeAdvance(){
+    if(window.__lowPowerMode) return false;
+    const slide = slides[lastIdx];
+    if(!slide || slide.dataset.animate !== 'pipeline') return false;
+    const steps  = [...slide.querySelectorAll('[data-anim="step"]')];
+    const arrows = [...slide.querySelectorAll('[data-anim="arrow"]')];
+    if(pipeStep >= steps.length - 1) return false;
+    pipeStep++;
+    animate(steps[pipeStep], {opacity:[0.15,1], y:[8,0]}, {duration:.5, easing:EASE});
+    if(pipeStep > 0 && arrows[pipeStep-1]){
+      animate(arrows[pipeStep-1], {opacity:[0.15,.7]}, {duration:.3, delay:.15});
+    }
+    return true;
+  }
+
+  function pipeBack(){
+    if(window.__lowPowerMode) return false;
+    const slide = slides[lastIdx];
+    if(!slide || slide.dataset.animate !== 'pipeline') return false;
+    const steps  = [...slide.querySelectorAll('[data-anim="step"]')];
+    const arrows = [...slide.querySelectorAll('[data-anim="arrow"]')];
+    if(pipeStep < 0) return false;
+    const current = steps[pipeStep];
+    const prevArrow = pipeStep > 0 ? arrows[pipeStep-1] : null;
+    if(current) animate(current, {opacity:[1,0.15], y:[0,8]}, {duration:.32, easing:EASE});
+    if(prevArrow) animate(prevArrow, {opacity:[.7,0.15]}, {duration:.25});
+    pipeStep--;
+    return true;
+  }
+
+  window.__playSlide = playSlide;
+  window.__pipeAdvance = pipeAdvance;
+  window.__pipeBack = pipeBack;
+
+  // 首屏:go(0) 已跑过(同步),没来得及触发动效 → 这里补一下
+  playSlide(0);
+}
+</script>
+</body>
+</html>
