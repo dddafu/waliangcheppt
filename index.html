@@ -343,8 +343,9 @@
   #hint{position:fixed;bottom:32.4px;right:57.6px;z-index:30;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.4;mix-blend-mode:difference;color:#aaa}
   body.low-power #hint{opacity:.72;color:var(--paper);mix-blend-mode:normal}
   body.light-bg.low-power #hint{color:var(--ink)}
-  #rotate-hint{display:none;position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;padding:12vw;text-align:center;background:var(--ink);color:var(--paper);font-family:var(--serif-zh);font-size:min(8vw,32px);line-height:1.55}
-  #rotate-hint small{display:block;margin-top:2vh;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.62}
+  #rotate-hint{display:none;position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;padding:12vw;text-align:center;background:var(--ink);color:var(--paper);font-family:var(--serif-zh);line-height:1.55}
+  #rotate-hint .rotate-title{font-size:min(8vw,32px);font-weight:700;letter-spacing:.08em}
+  #rotate-hint .rotate-copy{max-width:420px;margin:2vh auto 0;font-family:var(--sans-zh);font-size:min(4vw,15px);line-height:1.75;letter-spacing:.04em;opacity:.72}
 
   /* ============================================================
      ============ LAYOUTS API · 面向 agent 的类（v2）============
@@ -784,7 +785,7 @@
 </script>
 
 <div id="hint">左半区返回 · 右半区前进 · B 静态 · ESC 索引</div>
-<div id="rotate-hint"><div>请横屏观看<small>手机端可能出现画面比例失衡或边缘裁切，建议使用电脑端获得最佳展示效果。</small></div></div>
+<div id="rotate-hint"><div><div class="rotate-title">请横屏观看</div><div class="rotate-copy">手机端可能出现画面比例失衡或边缘裁切，建议使用电脑端获得最佳展示效果。</div></div></div>
 
 <div class="deck-viewport">
 <div id="deck-stage" class="deck-stage">
