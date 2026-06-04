@@ -35,7 +35,7 @@
   /* 所有页面按 1920x1080 设计，浏览器以 cover 模式铺满窗口，不在手机上重新排版。 */
   .deck-viewport{position:fixed;inset:0;overflow:hidden;z-index:10}
   .deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0}
-  #deck{position:absolute;left:0;top:0;width:23040px;height:1080px;display:flex;flex-wrap:nowrap;transition:transform .9s cubic-bezier(.77,0,.175,1);will-change:transform}
+  #deck{position:absolute;left:0;top:0;width:24960px;height:1080px;display:flex;flex-wrap:nowrap;transition:transform .9s cubic-bezier(.77,0,.175,1);will-change:transform}
   .slide{width:1920px;height:1080px;flex:0 0 1920px;position:relative;padding:64.8px 115.2px 108px 115.2px;display:flex;flex-direction:column;overflow:hidden}
   .slide.light{color:var(--ink);background:var(--paper)}
   .slide.dark{color:var(--paper);background:var(--ink)}
@@ -598,6 +598,27 @@
   .loop-kpi .l{margin-top:3.78px;font-family:var(--sans-zh);font-size:max(10px,13.44px);line-height:1.3;opacity:.68}
   .loop-evidence{display:grid;grid-template-columns:1fr 1fr;gap:17.28px;min-height:0}
   .loop-evidence .evidence-card{min-height:183.6px}
+  .lead-def-layout{display:grid;grid-template-columns:6.4fr 5.6fr;gap:58px;align-items:stretch;margin-top:24px;min-height:0}
+  .lead-def-hero{padding:24px 28px;border-top:1px solid currentColor;background:rgba(127,127,127,.055)}
+  .lead-def-hero .n{font-family:var(--serif-en);font-size:94px;font-weight:800;line-height:.9;letter-spacing:-.04em}
+  .lead-def-hero .n .unit{font-family:var(--serif-zh);font-size:.35em;font-weight:600;margin-left:.08em}
+  .lead-def-hero .l{margin-top:16px;font-family:var(--sans-zh);font-size:20px;line-height:1.65;opacity:.76}
+  .lead-equation{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+  .lead-eq{min-height:104px;padding:16px 18px;border-left:2px solid currentColor;background:rgba(127,127,127,.05)}
+  .lead-eq strong{display:block;font-family:var(--serif-zh);font-size:24px;line-height:1.15}
+  .lead-eq span{display:block;margin-top:10px;font-family:var(--sans-zh);font-size:13px;line-height:1.42;opacity:.66}
+  .lead-source-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+  .lead-source{padding:16px 18px;border-top:1px solid currentColor;background:rgba(127,127,127,.055)}
+  .lead-source .t{font-family:var(--serif-zh);font-size:22px;font-weight:700}
+  .lead-source .d{margin-top:8px;font-family:var(--sans-zh);font-size:13px;line-height:1.48;opacity:.68}
+  .lead-return-card{display:flex;flex-direction:column;justify-content:space-between;height:100%;padding:28px 32px;border:1px solid rgba(127,127,127,.24);background:rgba(127,127,127,.055)}
+  .lead-return-card .tag{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.56}
+  .lead-return-card .n{margin-top:14px;font-family:var(--serif-en);font-size:110px;font-weight:800;line-height:.9;letter-spacing:-.05em}
+  .lead-return-card .title{margin-top:12px;font-family:var(--serif-zh);font-size:30px;font-weight:700;letter-spacing:.03em}
+  .lead-return-card .copy{margin-top:18px;font-family:var(--sans-zh);font-size:17px;line-height:1.72;opacity:.76}
+  .lead-return-card .rule{margin:22px 0 0}
+  .lead-return-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+  .lead-return-list div{padding:11px 13px;background:rgba(127,127,127,.06);font-family:var(--sans-zh);font-size:14px;line-height:1.4;opacity:.78}
 
   /* ---------- chrome & foot 补位（layouts.md 简单写法） ---------- */
   .chrome{font-family:var(--mono);font-size:max(11px,14.976px);letter-spacing:.2em;text-transform:uppercase;opacity:.62}
@@ -822,7 +843,7 @@
   </div>
   <div class="foot">
     <div class="title">成立于 2019 年 · 广州增城 · 1800㎡ 展厅</div>
-    <div>FIELD NOTE · 01 / 12</div>
+    <div>FIELD NOTE · 01 / 13</div>
   </div>
 </section>
 
@@ -830,7 +851,7 @@
 <section class="slide light" data-theme="light">
   <div class="chrome">
     <div>市场观察 · The Market</div>
-    <div>ACT I · 02 / 12</div>
+    <div>ACT I · 02 / 13</div>
   </div>
   <div class="frame" style="padding-top:34.56px">
     <div class="kicker" data-anim>2025-2026 · 新能源二手车进入高速增长期</div>
@@ -919,22 +940,22 @@
 <section class="slide light" data-theme="light">
   <div class="chrome">
     <div>经营结果 · Verified Operations</div>
-    <div>ACT II · 03 / 12</div>
+    <div>ACT II · 03 / 13</div>
   </div>
   <div class="frame" style="padding-top:43.2px">
     <div class="kicker" data-anim>数字先说话。</div>
     <h2 class="h-xl" style="font-size:88.32px" data-anim>模型已经跑通。</h2>
     <div class="grid-6" style="margin-top:21.6px;gap:28.08px 76.8px">
-      <div class="stat-card" data-anim><div class="stat-label">Revenue</div><div class="stat-nb">3834.2<span class="stat-unit">万</span></div><div class="stat-note">最近 12 个月销售额 · 2025.06-2026.05</div></div>
-      <div class="stat-card" data-anim><div class="stat-label">Annual Sales</div><div class="stat-nb">420<span class="stat-unit">台</span></div><div class="stat-note">近一年成交量420台 ·平均月成交 35 台 · 旺季 40+</div></div>
-      <div class="stat-card" data-anim><div class="stat-label">Gross Profit</div><div class="stat-nb">218.49<span class="stat-unit">万</span></div><div class="stat-note">最近 12 个月毛利润 · 台账综合毛利率 5.7%</div></div>
-      <div class="stat-card" data-anim><div class="stat-label">Annual Leads</div><div class="stat-nb">1900<span class="stat-unit">条</span></div><div class="stat-note">既有年度汇总 · 来自 10 种以上渠道</div></div>
-      <div class="stat-card" data-anim><div class="stat-label">Repurchase</div><div class="stat-nb">18<span class="stat-unit">%</span></div><div class="stat-note">客户复购率 · 近一年服务客户 1500 人</div></div>
-      <div class="stat-card" data-anim><div class="stat-label">Inventory Control</div><div class="stat-nb">24<span class="stat-unit">台</span></div><div class="stat-note">年均收购444台 ·库存仅增加24台</div></div>
+      <div class="stat-card" data-anim><div class="stat-label">Revenue</div><div class="stat-nb">3832.6<span class="stat-unit">万</span></div><div class="stat-note">近一年销售额 · 2025.06-2025.05</div></div>
+      <div class="stat-card" data-anim><div class="stat-label">Annual Sales</div><div class="stat-nb">491<span class="stat-unit">台</span></div><div class="stat-note">近一年成交量491台 ·平均月成交约 41 台</div></div>
+      <div class="stat-card" data-anim><div class="stat-label">Gross Profit</div><div class="stat-nb">333.4<span class="stat-unit">万</span></div><div class="stat-note">近12个月毛利润 · 台账综合毛利率 8.7%</div></div>
+      <div class="stat-card" data-anim><div class="stat-label">Annual Leads</div><div class="stat-nb">1900<span class="stat-unit">条</span></div><div class="stat-note">交易线索 ·既有年度汇总 · 来自 10 种以上渠道</div></div>
+      <div class="stat-card" data-anim><div class="stat-label">Return Rate</div><div class="stat-nb">18<span class="stat-unit">%</span></div><div class="stat-note">全渠道客户回流率 · 含线索、线下、介绍与复购</div></div>
+      <div class="stat-card" data-anim><div class="stat-label">Inventory Control</div><div class="stat-nb">20<span class="stat-unit">台</span></div><div class="stat-note">近一年收购511台 ·售出491台 ·库存仅增加20台</div></div>
     </div>
   </div>
   <div class="foot">
-    <div class="title">数据 · 最近 12 个月经营台账 · 综合毛利率 5.7% · 明细台账可供尽调核验</div>
+    <div class="title">数据 · 最近 12 个月经营台账 · 综合毛利率 8.7% · 明细台账可供尽调核验</div>
     <div>BUSINESS RESULT</div>
   </div>
 </section>
@@ -943,7 +964,7 @@
 <section class="slide dark" data-theme="dark" data-animate="directional">
   <div class="chrome">
     <div>获客资产 · Media Acquisition</div>
-    <div>ACT II · 04 / 12</div>
+    <div>ACT II · 04 / 13</div>
   </div>
   <div class="frame" style="padding-top:28.08px">
     <div class="kicker" data-anim>不是等待自然客流，而是持续经营流量入口。</div>
@@ -953,7 +974,7 @@
         <div class="proof-kpis">
           <div class="proof-kpi"><div class="n">19.2<span style="font-size:.45em">万</span></div><div class="l">抖音官方号粉丝<br>后台截图可核验</div></div>
           <div class="proof-kpi"><div class="n">40.2<span style="font-size:.45em">万</span></div><div class="l">抖音官方号获赞<br>形成区域内容入口</div></div>
-          <div class="proof-kpi"><div class="n">47</div><div class="l">单次投放样本转化数<br>2.51 万展示 · 825 点击</div></div>
+          <div class="proof-kpi"><div class="n">47<span style="font-size:.45em">次</span></div><div class="l">单次投放样本转化数<br>2.51 万展示 · 825 点击</div></div>
         </div>
         <div>
           <div class="kicker" style="margin:10.8px 0 7.56px">全域矩阵 · Public Traffic Matrix</div>
@@ -995,11 +1016,65 @@
   </div>
 </section>
 
-<!-- 05 · 线索到交易闭环 -->
+<!-- 05 · 交易线索口径说明 -->
+<section class="slide light" data-theme="light" data-animate="directional">
+  <div class="chrome">
+    <div>线索口径 · Lead Definition</div>
+    <div>ACT II · 05 / 13</div>
+  </div>
+  <div class="frame" style="padding-top:30px">
+    <div class="kicker" data-anim>先定义口径，再看转化能力。</div>
+    <h2 class="h-xl" style="font-size:74px;line-height:1.06" data-anim>交易线索，<br>就是可跟进的客户。</h2>
+    <div class="lead-def-layout">
+      <div data-anim="left">
+        <div class="lead-def-hero">
+          <div class="n">1900<span class="unit">条</span></div>
+          <div class="l">这里的线索不是曝光、点赞或浏览量，而是已经留下联系方式、账号身份、到店记录或明确交易意向的客户记录。每一条线索都可以被分配、跟进、复盘，并最终沉淀为客户资产。</div>
+        </div>
+        <div class="lead-equation">
+          <div class="lead-eq"><strong>客户意向</strong><span>买车、卖车、置换、评估、咨询等明确需求。</span></div>
+          <div class="lead-eq"><strong>可联系</strong><span>电话、微信、平台私信、账号身份或到店记录。</span></div>
+          <div class="lead-eq"><strong>来源标签</strong><span>抖音、易车、线下、介绍、私域等可归因入口。</span></div>
+          <div class="lead-eq"><strong>跟进记录</strong><span>分配、沟通、到店、成交、回访形成闭环。</span></div>
+        </div>
+        <div class="lead-source-grid">
+          <div class="lead-source"><div class="t">线上平台线索</div><div class="d">抖音、小红书、懂车帝、易车、人人车、金鱼塘等平台咨询、私信、留资与后台线索。</div></div>
+          <div class="lead-source"><div class="t">线下到店线索</div><div class="d">展厅咨询、试驾评估、现场看车、车辆置换等可被销售继续跟进的客户记录。</div></div>
+          <div class="lead-source"><div class="t">介绍与合作线索</div><div class="d">老客户、朋友推荐、同行合作、社区店等带来的明确交易意向。</div></div>
+          <div class="lead-source"><div class="t">私域再触达线索</div><div class="d">企业微信、公众号、客户群、售后回访中重新激活的买卖车需求。</div></div>
+        </div>
+      </div>
+      <div data-anim="right">
+        <div class="lead-return-card">
+          <div>
+            <div class="tag">All-channel customer return</div>
+            <div class="n">18%</div>
+            <div class="title">全渠道客户回流率</div>
+            <div class="copy">18% 不定义为单一“二次购车率”，而是全渠道客户回流口径：包含既有客户再次咨询、卖车/置换需求、朋友介绍、线下回访、私域再触达等形成的新意向。</div>
+            <div class="rule"></div>
+            <div class="lead-return-list">
+              <div>既有客户再次咨询</div>
+              <div>卖车 / 置换需求</div>
+              <div>朋友介绍与推荐</div>
+              <div>私域与线下回访</div>
+            </div>
+          </div>
+          <div class="meta" style="margin-top:22px">表达重点：客户不是一次性成交对象，而是可长期触达、可复盘、可再次转化的经营资产。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="title">口径说明 · 线索 = 可识别、可联系、可跟进的客户记录</div>
+    <div>LEAD AS CUSTOMER</div>
+  </div>
+</section>
+
+<!-- 06 · 线索到交易闭环 -->
 <section class="slide light" data-theme="light" data-animate="pipeline">
   <div class="chrome">
     <div>交易闭环 · Conversion Loop</div>
-    <div>ACT II · 05 / 12</div>
+    <div>ACT II · 06 / 13</div>
   </div>
   <div class="frame" style="padding-top:28.08px">
     <div class="kicker">从公域流量，到可追踪的客户资产。</div>
@@ -1013,11 +1088,11 @@
       <div class="flow-arrow" data-anim="arrow">→</div>
       <div class="flow-step" data-anim="step"><span class="n">04</span><span class="t">成交交付</span><span class="d">零售 · 批发 · 售后</span></div>
       <div class="flow-arrow" data-anim="arrow">→</div>
-      <div class="flow-step" data-anim="step"><span class="n">05</span><span class="t">私域沉淀</span><span class="d">复购 · 转介绍 · 复盘</span></div>
+      <div class="flow-step" data-anim="step"><span class="n">05</span><span class="t">私域沉淀</span><span class="d">回流 · 转介绍 · 复盘</span></div>
     </div>
     <div class="flow-bottom">
       <div data-anim="step">
-        <div class="kicker" style="margin-bottom:8.64px">收购来源分布 · 420 台</div>
+        <div class="kicker" style="margin-bottom:8.64px">渠道来源样本 · 420 台</div>
         <div class="channel-list">
           <div class="channel-row"><div class="name">易车</div><div class="track"><div class="fillbar" data-bar-anim="x" style="width:100%"></div></div><div class="pct">120 · 28.6%</div></div>
           <div class="channel-row"><div class="name">人人车</div><div class="track"><div class="fillbar" data-bar-anim="x" style="width:66.4%"></div></div><div class="pct">80 · 19.0%</div></div>
@@ -1032,9 +1107,9 @@
       <div class="loop-side" data-anim="step">
         <div class="loop-kpis">
           <div class="loop-kpi"><div class="n">1900<span style="font-size:.42em">条</span></div><div class="l">年线索总量<br>多平台入口汇总</div></div>
-          <div class="loop-kpi"><div class="n">420<span style="font-size:.42em">台</span></div><div class="l">近一年成交<br>线索到交易可追踪</div></div>
+          <div class="loop-kpi"><div class="n">491<span style="font-size:.42em">台</span></div><div class="l">近一年成交<br>线索到交易可追踪</div></div>
           <div class="loop-kpi"><div class="n">800+<span style="font-size:.42em">人</span></div><div class="l">私域沉淀<br>客户积累</div></div>
-          <div class="loop-kpi"><div class="n">18%</div><div class="l">客户复购率</div></div>
+          <div class="loop-kpi"><div class="n">18%</div><div class="l">客户回流率<br>全渠道口径</div></div>
         </div>
         <div class="loop-evidence">
           <figure class="evidence-card"><img src="images/04b-yiche-leads.png" alt="易车线索包后台截图"><figcaption class="cap"><strong>线索入口</strong>易车后台 · 1403 条可见记录</figcaption></figure>
@@ -1049,11 +1124,11 @@
   </div>
 </section>
 
-<!-- 06 · 单车经济与资金效率 -->
+<!-- 07 · 单车经济与资金效率 -->
 <section class="slide light" data-theme="light" data-animate="directional">
   <div class="chrome">
     <div>资金效率 · Unit Economics</div>
-    <div>ACT II · 06 / 12</div>
+    <div>ACT II · 07 / 13</div>
   </div>
   <div class="frame" style="padding-top:34px">
     <div class="kicker" data-anim>投资人看增长，也看每一块钱如何周转。</div>
@@ -1061,20 +1136,20 @@
     <div class="econ-layout">
       <div data-anim="left">
         <div class="econ-hero">
-          <div class="nb"><span class="unit">每台利润</span>5202<span class="unit">元</span></div>
-          <div class="txt">按近一年台账测算：销售额 3834.2 万元、成交 420 台、毛利润 218.49 万元，单车平均毛利约 5202 元，综合毛利率约 5.7%。</div>
+          <div class="nb"><span class="unit">每台利润</span>6791<span class="unit">元</span></div>
+          <div class="txt">按近一年台账测算：销售额 3832.6 万元、成交 491 台、毛利润 333.4 万元，单车平均毛利约 6791 元，综合毛利率约 8.7%。</div>
         </div>
         <div class="econ-strip">
-          <div class="econ-kpi"><div class="n">9.13<span class="unit">万</span></div><div class="l">单车平均销售额<br>3834.2 万 / 420 台</div></div>
-          <div class="econ-kpi"><div class="n">5.7%</div><div class="l">综合毛利率<br>近一年台账</div></div>
-          <div class="econ-kpi"><div class="n">24<span class="unit">台</span></div><div class="l">库存净增加<br>收购 444 台 / 售出 420 台</div></div>
+          <div class="econ-kpi"><div class="n">7.81<span class="unit">万</span></div><div class="l">单车平均销售额<br>3832.6 万 / 491 台</div></div>
+          <div class="econ-kpi"><div class="n">8.7%</div><div class="l">综合毛利率<br>近一年台账</div></div>
+          <div class="econ-kpi"><div class="n">20<span class="unit">台</span></div><div class="l">库存净增加<br>收购 511 台 / 售出 491 台</div></div>
         </div>
       </div>
       <div data-anim="right">
         <div class="econ-board">
-          <div class="econ-row"><div class="k">Revenue</div><div class="v">近一年销售额 3834.2 万</div><div class="d">已形成稳定交易规模</div></div>
-          <div class="econ-row"><div class="k">Gross Profit</div><div class="v">近一年毛利润 218.49 万</div><div class="d">单车利润可复盘</div></div>
-          <div class="econ-row"><div class="k">Turnover</div><div class="v">收购 444 台，售出 420 台</div><div class="d">库存增长受控</div></div>
+          <div class="econ-row"><div class="k">Revenue</div><div class="v">近一年销售额 3832.6 万</div><div class="d">已形成稳定交易规模</div></div>
+          <div class="econ-row"><div class="k">Gross Profit</div><div class="v">近一年毛利润 333.4 万</div><div class="d">单车利润可复盘</div></div>
+          <div class="econ-row"><div class="k">Turnover</div><div class="v">收购 511 台，售出 491 台</div><div class="d">库存增长受控</div></div>
           <div class="econ-row"><div class="k">Capital Use</div><div class="v">车源资金池随周转重复使用</div><div class="d">不是一次性消耗</div></div>
         </div>
         <div class="econ-chain">
@@ -1095,11 +1170,11 @@
   </div>
 </section>
 
-<!-- 07 · 发展路线 -->
+<!-- 08 · 发展路线 -->
 <section class="slide dark" data-theme="dark">
   <div class="chrome">
     <div>发展路线 · Roadmap</div>
-    <div>ACT III · 07 / 12</div>
+    <div>ACT III · 08 / 13</div>
   </div>
   <div class="frame" style="padding-top:34.56px">
     <div class="kicker" style="margin-bottom:15.12px" data-anim>四个阶段，逐步放大。</div>
@@ -1135,11 +1210,11 @@
   </div>
 </section>
 
-<!-- 08 · 章节幕封 -->
+<!-- 09 · 章节幕封 -->
 <section class="slide hero light" data-theme="light">
   <div class="chrome">
     <div>下一阶段 · The Next Chapter</div>
-    <div>ACT III · 08 / 12</div>
+    <div>ACT III · 09 / 13</div>
   </div>
   <div class="frame" style="display:grid;gap:54px;align-content:center;min-height:864px">
     <div class="kicker" data-anim>从一个品牌，到一套模型。</div>
@@ -1152,11 +1227,11 @@
   </div>
 </section>
 
-<!-- 09 · 融资与合作 -->
+<!-- 10 · 融资与合作 -->
 <section class="slide light p7" data-theme="light" data-animate="directional">
   <div class="chrome">
     <div>合作方案 · Partnership</div>
-    <div>ACT IV · 09 / 12</div>
+    <div>ACT IV · 10 / 13</div>
   </div>
   <div class="frame" style="padding-top:25.92px">
     <div class="fund-hero">
@@ -1245,11 +1320,11 @@
   </div>
 </section>
 
-<!-- 10 · 公司底座 -->
+<!-- 11 · 公司底座 -->
 <section class="slide dark" data-theme="dark">
   <div class="chrome">
     <div>公司档案 · Company Profile</div>
-    <div>ACT IV · 10 / 12</div>
+    <div>ACT IV · 11 / 13</div>
   </div>
   <div class="frame" style="padding-top:54px">
     <div class="kicker" data-anim>不是一张蓝图，是一套已经运转的底座。</div>
@@ -1298,11 +1373,11 @@
   </div>
 </section>
 
-<!-- 11 · 被投 CEO -->
+<!-- 12 · 被投 CEO -->
 <section class="slide light" data-theme="light" data-animate="directional">
   <div class="chrome">
     <div>CEO Profile</div>
-    <div>ACT IV · 11 / 12</div>
+    <div>ACT IV · 12 / 13</div>
   </div>
   <div class="frame" style="padding-top:30.24px">
     <div class="ceo-layout">
@@ -1344,12 +1419,12 @@
   </div>
 </section>
 
-<!-- 12 · 收束 -->
+<!-- 13 · 收束 -->
 <section class="slide hero dark closing-gl" data-theme="dark" data-animate="quote">
   <canvas id="closing-canvas" class="closing-canvas"></canvas>
   <div class="chrome">
     <div>结语 · Closing Note</div>
-    <div>12 / 12</div>
+    <div>13 / 13</div>
   </div>
   <div class="frame" style="display:grid;gap:43.2px;align-content:center;min-height:864px">
     <blockquote style="font-family:var(--serif-zh);font-weight:700;font-size:107.52px;line-height:1.22;letter-spacing:-.01em;max-width:1497.6px">
