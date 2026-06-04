@@ -747,11 +747,13 @@
     function showWelcomeThenEnter(){
       const gate = document.getElementById('welcome-gate');
       gate && gate.setAttribute('aria-hidden','false');
+      window.__welcomeLocked = true;
       document.body.classList.remove('auth-locked');
       document.body.classList.add('auth-welcoming');
       const stopWelcome = startWelcomeGL();
       setTimeout(()=>{
         stopWelcome();
+        window.__welcomeLocked = false;
         document.body.classList.remove('auth-welcoming');
         gate && gate.setAttribute('aria-hidden','true');
         enterDeck();
@@ -1476,6 +1478,7 @@ slides.forEach((s,i)=>{
 });
 
 function go(n){
+  if(typeof isWelcomeLocked === 'function' && isWelcomeLocked()) return;
   if(lock)return;
   idx=Math.max(0,Math.min(total-1,n));
   window.__currentSlideIndex = idx;
@@ -1528,7 +1531,17 @@ function toggleOverview(){
   else{ov.style.display='none';}
 }
 
+function isWelcomeLocked(){
+  return window.__welcomeLocked || document.body.classList.contains('auth-welcoming');
+}
+
+function isDeckLocked(){
+  return isWelcomeLocked() || document.body.classList.contains('auth-locked');
+}
+
 addEventListener('keydown',e=>{
+  if(isWelcomeLocked()){e.preventDefault();e.stopPropagation();return;}
+  if(document.body.classList.contains('auth-locked')) return;
   if(e.key==='Escape'){e.preventDefault();toggleOverview();return;}
   if(e.key && e.key.toLowerCase()==='b' && !e.metaKey && !e.ctrlKey && !e.altKey){
     e.preventDefault();
@@ -1551,9 +1564,10 @@ addEventListener('keydown',e=>{
 
 addEventListener('click',e=>{
   if(e.button !== 0) return;
-  if(document.body.classList.contains('auth-locked') || document.body.classList.contains('auth-welcoming')) return;
+  if(isWelcomeLocked()){e.preventDefault();e.stopPropagation();return;}
   const interactive = e.target.closest('button,input,textarea,select,a,label,#nav,#overview,#auth-gate,#welcome-gate');
   if(interactive || overviewOn) return;
+  if(document.body.classList.contains('auth-locked')) return;
   const goNext = e.clientX >= innerWidth / 2;
   if(goNext){
     if(window.__pipeAdvance && window.__pipeAdvance()) return;
@@ -1566,6 +1580,7 @@ addEventListener('click',e=>{
 
 let wheelTO=null,wheelAcc=0;
 addEventListener('wheel',e=>{
+  if(isDeckLocked()){wheelAcc=0;return;}
   wheelAcc+=e.deltaY+e.deltaX;
   if(Math.abs(wheelAcc)>50){
     if(wheelAcc>0 && window.__pipeAdvance && window.__pipeAdvance()){
@@ -1580,8 +1595,9 @@ addEventListener('wheel',e=>{
 },{passive:true});
 
 let tx=0,ty=0;
-addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+addEventListener('touchstart',e=>{if(isDeckLocked()){tx=0;ty=0;return;}tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
 addEventListener('touchend',e=>{
+  if(isDeckLocked()) return;
   const dx=(e.changedTouches[0].clientX-tx);
   const dy=(e.changedTouches[0].clientY-ty);
   if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){
