@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -54,7 +54,7 @@
   .slide.hero.dark::after{background:linear-gradient(180deg,rgba(var(--ink-rgb),.32) 0%,rgba(var(--ink-rgb),0) 14%,rgba(var(--ink-rgb),0) 86%,rgba(var(--ink-rgb),.32) 100%)}
 
   /* ============ Magazine chrome：顶部 meta + 底部 foot ============ */
-  .chrome{display:flex;justify-content:flex-end;align-items:flex-start;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.58;margin-top:12px}
+  .chrome{display:flex;justify-content:flex-end;align-items:flex-start;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.58;margin-top:12px;padding-right:96px}
   .chrome > div:first-child{display:none}
   .chrome .left,.chrome .right{display:flex;gap:2.4em;align-items:center}
   .chrome .sep{width:40px;height:1px;background:currentColor;opacity:.4}
@@ -707,8 +707,8 @@
 <script>
   (function(){
     const AUTH_KEY = 'waliangche-deck-auth-v1';
-    const PASSWORD_HASH = '4bd5adc5d0c765a7f527adfdb53c3281deeea40eaee670cc948a823f1c78ff27';
-    const FALLBACK_PASSWORD = atob('d2FsaWFuZ2NoZTIwMjY=');
+    const PASSWORD_HASH = '1229c942e7be88ee5fa538281e951f23c76519ad3c7becd2aa923f362b953bad';
+    const FALLBACK_PASSWORD = atob('d2xjMjAyNg==');
     if(sessionStorage.getItem(AUTH_KEY) === '1'){
       document.body.classList.remove('auth-locked');
       return;
@@ -946,7 +946,7 @@
     <div class="kicker" data-anim>数字先说话。</div>
     <h2 class="h-xl" style="font-size:88.32px" data-anim>模型已经跑通。</h2>
     <div class="grid-6" style="margin-top:21.6px;gap:28.08px 76.8px">
-      <div class="stat-card" data-anim><div class="stat-label">Revenue</div><div class="stat-nb">3832.6<span class="stat-unit">万</span></div><div class="stat-note">近一年销售额 · 2025.06-2025.05</div></div>
+      <div class="stat-card" data-anim><div class="stat-label">Revenue</div><div class="stat-nb">3832.6<span class="stat-unit">万</span></div><div class="stat-note">近一年销售额 · 2025.06-2026.05</div></div>
       <div class="stat-card" data-anim><div class="stat-label">Annual Sales</div><div class="stat-nb">491<span class="stat-unit">台</span></div><div class="stat-note">近一年成交量491台 ·平均月成交约 41 台</div></div>
       <div class="stat-card" data-anim><div class="stat-label">Gross Profit</div><div class="stat-nb">333.4<span class="stat-unit">万</span></div><div class="stat-note">近12个月毛利润 · 台账综合毛利率 8.7%</div></div>
       <div class="stat-card" data-anim><div class="stat-label">Annual Leads</div><div class="stat-nb">1900<span class="stat-unit">条</span></div><div class="stat-note">交易线索 ·既有年度汇总 · 来自 10 种以上渠道</div></div>
@@ -960,11 +960,65 @@
   </div>
 </section>
 
-<!-- 04 · 自媒体获客资产 -->
+<!-- 04 · 交易线索口径说明 -->
+<section class="slide light" data-theme="light" data-animate="directional">
+  <div class="chrome">
+    <div>线索口径 · Lead Definition</div>
+    <div>ACT II · 04 / 13</div>
+  </div>
+  <div class="frame" style="padding-top:30px">
+    <div class="kicker" data-anim>先定义口径，再看转化能力。</div>
+    <h2 class="h-xl" style="font-size:74px;line-height:1.06" data-anim>交易线索，<br>就是可跟进的客户。</h2>
+    <div class="lead-def-layout">
+      <div data-anim="left">
+        <div class="lead-def-hero">
+          <div class="n">1900<span class="unit">条</span></div>
+          <div class="l">这里的线索不是曝光、点赞或浏览量，而是已经留下联系方式、账号身份、到店记录或明确交易意向的客户记录。每一条线索都可以被分配、跟进、复盘，并最终沉淀为客户资产。</div>
+        </div>
+        <div class="lead-equation">
+          <div class="lead-eq"><strong>客户意向</strong><span>买车、卖车、置换、评估、咨询等明确需求。</span></div>
+          <div class="lead-eq"><strong>可联系</strong><span>电话、微信、平台私信、账号身份或到店记录。</span></div>
+          <div class="lead-eq"><strong>来源标签</strong><span>抖音、易车、线下、介绍、私域等可归因入口。</span></div>
+          <div class="lead-eq"><strong>跟进记录</strong><span>分配、沟通、到店、成交、回访形成闭环。</span></div>
+        </div>
+        <div class="lead-source-grid">
+          <div class="lead-source"><div class="t">线上平台线索</div><div class="d">抖音、小红书、懂车帝、易车、人人车、金鱼塘等平台咨询、私信、留资与后台线索。</div></div>
+          <div class="lead-source"><div class="t">线下到店线索</div><div class="d">展厅咨询、试驾评估、现场看车、车辆置换等可被销售继续跟进的客户记录。</div></div>
+          <div class="lead-source"><div class="t">介绍与合作线索</div><div class="d">老客户、朋友推荐、同行合作、社区店等带来的明确交易意向。</div></div>
+          <div class="lead-source"><div class="t">私域再触达线索</div><div class="d">企业微信、公众号、客户群、售后回访中重新激活的买卖车需求。</div></div>
+        </div>
+      </div>
+      <div data-anim="right">
+        <div class="lead-return-card">
+          <div>
+            <div class="tag">All-channel customer return</div>
+            <div class="n">18%</div>
+            <div class="title">全渠道客户回流率</div>
+            <div class="copy">18% 不定义为单一“二次购车率”，而是全渠道客户回流口径：包含既有客户再次咨询、卖车/置换需求、朋友介绍、线下回访、私域再触达等形成的新意向。</div>
+            <div class="rule"></div>
+            <div class="lead-return-list">
+              <div>既有客户再次咨询</div>
+              <div>卖车 / 置换需求</div>
+              <div>朋友介绍与推荐</div>
+              <div>私域与线下回访</div>
+            </div>
+          </div>
+          <div class="meta" style="margin-top:22px">表达重点：客户不是一次性成交对象，而是可长期触达、可复盘、可再次转化的经营资产。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="title">口径说明 · 线索 = 可识别、可联系、可跟进的客户记录</div>
+    <div>LEAD AS CUSTOMER</div>
+  </div>
+</section>
+
+<!-- 05 · 自媒体获客资产 -->
 <section class="slide dark" data-theme="dark" data-animate="directional">
   <div class="chrome">
     <div>获客资产 · Media Acquisition</div>
-    <div>ACT II · 04 / 13</div>
+    <div>ACT II · 05 / 13</div>
   </div>
   <div class="frame" style="padding-top:28.08px">
     <div class="kicker" data-anim>不是等待自然客流，而是持续经营流量入口。</div>
@@ -1013,60 +1067,6 @@
   <div class="foot">
     <div class="title">核心价值 · 流量入口可持续经营 · 团队具备内容与投放执行能力</div>
     <div>MEDIA ASSET</div>
-  </div>
-</section>
-
-<!-- 05 · 交易线索口径说明 -->
-<section class="slide light" data-theme="light" data-animate="directional">
-  <div class="chrome">
-    <div>线索口径 · Lead Definition</div>
-    <div>ACT II · 05 / 13</div>
-  </div>
-  <div class="frame" style="padding-top:30px">
-    <div class="kicker" data-anim>先定义口径，再看转化能力。</div>
-    <h2 class="h-xl" style="font-size:74px;line-height:1.06" data-anim>交易线索，<br>就是可跟进的客户。</h2>
-    <div class="lead-def-layout">
-      <div data-anim="left">
-        <div class="lead-def-hero">
-          <div class="n">1900<span class="unit">条</span></div>
-          <div class="l">这里的线索不是曝光、点赞或浏览量，而是已经留下联系方式、账号身份、到店记录或明确交易意向的客户记录。每一条线索都可以被分配、跟进、复盘，并最终沉淀为客户资产。</div>
-        </div>
-        <div class="lead-equation">
-          <div class="lead-eq"><strong>客户意向</strong><span>买车、卖车、置换、评估、咨询等明确需求。</span></div>
-          <div class="lead-eq"><strong>可联系</strong><span>电话、微信、平台私信、账号身份或到店记录。</span></div>
-          <div class="lead-eq"><strong>来源标签</strong><span>抖音、易车、线下、介绍、私域等可归因入口。</span></div>
-          <div class="lead-eq"><strong>跟进记录</strong><span>分配、沟通、到店、成交、回访形成闭环。</span></div>
-        </div>
-        <div class="lead-source-grid">
-          <div class="lead-source"><div class="t">线上平台线索</div><div class="d">抖音、小红书、懂车帝、易车、人人车、金鱼塘等平台咨询、私信、留资与后台线索。</div></div>
-          <div class="lead-source"><div class="t">线下到店线索</div><div class="d">展厅咨询、试驾评估、现场看车、车辆置换等可被销售继续跟进的客户记录。</div></div>
-          <div class="lead-source"><div class="t">介绍与合作线索</div><div class="d">老客户、朋友推荐、同行合作、社区店等带来的明确交易意向。</div></div>
-          <div class="lead-source"><div class="t">私域再触达线索</div><div class="d">企业微信、公众号、客户群、售后回访中重新激活的买卖车需求。</div></div>
-        </div>
-      </div>
-      <div data-anim="right">
-        <div class="lead-return-card">
-          <div>
-            <div class="tag">All-channel customer return</div>
-            <div class="n">18%</div>
-            <div class="title">全渠道客户回流率</div>
-            <div class="copy">18% 不定义为单一“二次购车率”，而是全渠道客户回流口径：包含既有客户再次咨询、卖车/置换需求、朋友介绍、线下回访、私域再触达等形成的新意向。</div>
-            <div class="rule"></div>
-            <div class="lead-return-list">
-              <div>既有客户再次咨询</div>
-              <div>卖车 / 置换需求</div>
-              <div>朋友介绍与推荐</div>
-              <div>私域与线下回访</div>
-            </div>
-          </div>
-          <div class="meta" style="margin-top:22px">表达重点：客户不是一次性成交对象，而是可长期触达、可复盘、可再次转化的经营资产。</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="foot">
-    <div class="title">口径说明 · 线索 = 可识别、可联系、可跟进的客户记录</div>
-    <div>LEAD AS CUSTOMER</div>
   </div>
 </section>
 
@@ -1182,7 +1182,7 @@
     <div class="grid-2-7-5" style="margin-top:23.76px;gap:76.8px;align-items:start">
       <div data-anim>
         <div class="rowline roadmap-row" style="grid-template-columns:1fr 2.4fr;padding:11px 0">
-          <div class="k">1 - 3 个月</div><div class="v">月均成交目标 45 台 · 零售占比 65%<br>布局海外增长平台，打通跨境车辆流通与交付链路</div>
+          <div class="k">1 - 3 个月</div><div class="v">月均成交目标 60 台 · 零售占比 65%<br>布局海外增长平台，打通跨境车辆流通与交付链路</div>
         </div>
         <div class="rowline roadmap-row" style="grid-template-columns:1fr 2.4fr;padding:11px 0">
           <div class="k">3 - 6 个月</div><div class="v">筹备第二展厅，优先覆盖黄埔 / 东莞<br>搭建 CRM 管理体系，提升客户复购与跟进效率</div>
@@ -1773,3 +1773,4 @@ if(motion){
 </script>
 </body>
 </html>
+
